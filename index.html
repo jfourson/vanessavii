@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanessa Vii - Fashion Model Portfolio</title>
+  <meta name="description" content="Vanessa Vii: Portfolio Website, New York Fashion Model" />
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Language Switcher -->
+  <!-- <div class="language-switcher">
+    <button data-lang="en">EN</button>
+    <button data-lang="jp">日本語</button>
+  </div> -->
+
+ 
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background"></div>    
+    <div class="hero-overlay"></div>
+    <nav class="hero-nav">
+      <a href="#about" class="hero-link">About Me</a>
+      <a href="#social" class="hero-link">Social Media</a>
+      <a href="#contact" class="hero-link">Contact</a>
+  </nav>
+    <div class="hero-content">
+      <p class="hero-subtitle" data-i18n="heroSubtitle1">FASHION MODEL</p>
+      <p class="hero-subtitle" data-i18n="heroSubtitle2">NEW YORK</p>
+      <h1 class="hero-title">
+        VANESSA VII
+      </h1>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-content">
+        <!-- Stats Text -->
+        <div class="stats-text">
+          <h2 class="stats-title" data-i18n="statsTitle">MY STATS</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <p class="stat-label" data-i18n="height">Height</p>
+              <p class="stat-value">5"11"</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-label" data-i18n="weight">Weight</p>
+              <p class="stat-value">117 lbs.</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-label" data-i18n="shoe">Shoe</p>
+              <p class="stat-value">8 US</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-label" data-i18n="bwh">BWH</p>
+              <p class="stat-value">32-24-36</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-label" data-i18n="hair">Hair</p>
+              <p class="stat-value">RED</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-label" data-i18n="eyes">Eyes</p>
+              <p class="stat-value">BLUE</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-label" data-i18n="dress">Dress Size</p>
+              <p class="stat-value">2-4</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-label" data-i18n="nationality">Nationality</p>
+              <p class="stat-value">Ukrainian</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portrait Images -->
+        <div class="portrait-images">
+          <div class="portrait-image">
+            <img src="images/portrait1.jpg" alt="Vanessa Portrait 1" />
+          </div>
+          <div class="portrait-image">
+            <img src="images/image2.jpg" alt="Vanessa Portrait 2" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation/Portfolio Sections -->
+  <section class="portfolio-nav">
+    <div class="container">
+      <nav class="nav-menu">
+        <a href="#" class="nav-link" data-filter="all" data-i18n="all">ALL</a>
+        <a href="#" class="nav-link" data-filter="book" data-i18n="book">BOOK</a>
+        <a href="#" class="nav-link" data-filter="shows" data-i18n="shows">SHOWS</a>
+        <a href="#" class="nav-link" data-filter="advertising" data-i18n="advertising">ADVERTISING</a>
+        <a href="#" class="nav-link" data-filter="photoshoots" data-i18n="photoshoots">PHOTOSHOOTS</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Porfolio Gallery -->
+  <section class="portfolio-gallery container">
+  <!-- BOOK -->
+  <div class="portfolio-item book">
+    <img src="images/book1.jpg" alt="Book Portfolio Image 1">
+  </div>
+  <div class="portfolio-item book">
+    <img src="images/book2.jpg" alt="Book Portfolio Image 2">
+  </div>
+  <!-- <div class="portfolio-item book">
+    <img src="images/book3.jpg" alt="Book Portfolio Image 3">
+  </div> -->
+
+  <!-- SHOWS -->
+  <div class="portfolio-item shows">
+    <img src="images/show1.jpg" alt="Shows Portfolio Image 1">
+  </div>
+  <div class="portfolio-item shows">
+    <img src="images/show2.jpg" alt="Shows Portfolio Image 2">
+  </div>
+
+  <!-- ADVERTISING -->
+  <div class="portfolio-item advertising">
+    <img src="images/ads1.jpg" alt="Advertising Portfolio Image 1">
+  </div>
+  <div class="portfolio-item advertising">
+    <img src="images/ads2.jpg" alt="Advertising Portfolio Image 2">
+  </div>
+
+  <!-- PHOTOSHOOTS -->
+  <div class="portfolio-item photoshoots">
+    <img src="images/photoshoot1.jpg" alt="Photoshoot Portfolio Image 1">
+  </div>
+  <div class="portfolio-item photoshoots">
+    <img src="images/photoshoot2.jpg" alt="Photoshoot Portfolio Image 2">
+  </div>
+  <!-- <div class="portfolio-item photoshoots">
+    <img src="images/photoshoot3.jpg" alt="Photoshoot Portfolio Image 3">
+  </div> -->
+</section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <p class="contact-text">
+        <span data-i18n="contact">CONTACT:</span>
+        <a href="mailto:contact@verivii.com" class="contact-link">contact@verivii.com</a>
+      </p>
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
