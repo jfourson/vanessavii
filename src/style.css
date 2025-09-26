@@ -29,7 +29,14 @@ body {
   overflow: hidden;
 }
 
-
+.home-nav {
+  position: absolute;
+  top: 20px;       /* Distance from top */
+  left: 30px;     /* Distance from right */
+  display: flex;
+  gap: 20px;       /* Space between links */
+  z-index: 10;     /* Keep above background/overlay */
+}    
 
 .hero-nav {
   position: absolute;
@@ -60,6 +67,17 @@ body {
   width: 100%;
   height: 100%;
   background-image: url('../images/hand.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.socials-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/socials/socialBack.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
