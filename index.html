@@ -99,12 +99,12 @@
   <section class="portfolio-nav">
     <div class="container">
       <nav class="nav-menu">
-        <a href="#" class="nav-link" data-filter="all" data-i18n="all">ALL</a>
-        <a href="#" class="nav-link" data-filter="book" data-i18n="book">BOOK</a>
-        <a href="#" class="nav-link" data-filter="shows" data-i18n="shows">SHOWS</a>
-        <a href="#" class="nav-link" data-filter="advertising" data-i18n="advertising">ADVERTISING</a>
-        <a href="#" class="nav-link" data-filter="photoshoots" data-i18n="photoshoots">PHOTOSHOOTS</a>
-      </nav>
+        <a href="javascript:void(0)" class="nav-link" data-filter="all" data-i18n="all">ALL</a>
+        <a href="javascript:void(0)" class="nav-link" data-filter="book" data-i18n="book">BOOK</a>
+        <a href="javascript:void(0)" class="nav-link" data-filter="shows" data-i18n="shows">SHOWS</a>
+        <a href="javascript:void(0)" class="nav-link" data-filter="advertising" data-i18n="advertising">ADVERTISING</a>
+        <a href="javascript:void(0)" class="nav-link" data-filter="photoshoots" data-i18n="photoshoots">PHOTOSHOOTS</a>
+</nav>
     </div>
   </section>
 
@@ -159,6 +159,36 @@
     </div>
   </section>
 
-  <script type="module" src="/src/main.ts"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Simple client-side filter for portfolio items
+  const filterLinks = document.querySelectorAll('.nav-link[data-filter]');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  function applyFilter(filter) {
+    portfolioItems.forEach(item => {
+      if (filter === 'all' || item.classList.contains(filter)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  filterLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const f = this.getAttribute('data-filter') || 'all';
+      applyFilter(f);
+      // mark active link
+      filterLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // initialize showing all
+  applyFilter('all');
+});
+</script>
 </body>
 </html>
