@@ -26,9 +26,9 @@
     <div class="hero-background"></div>    
     <div class="hero-overlay"></div>
     <nav class="hero-nav">
-      <a href="#about" class="hero-link">About Me</a>
-      <a href="#social" class="hero-link">Social Media</a>
-      <a href="#contact" class="hero-link">Contact</a>
+      <a href="aboutme.html" class="hero-link">About Me</a>
+      <a href="socials.html" class="hero-link">Social Media</a>
+      <a href="contact.html" class="hero-link">Contact</a>
   </nav>
     <div class="hero-content">
       <p class="hero-subtitle" data-i18n="heroSubtitle1">FASHION MODEL</p>
@@ -160,35 +160,35 @@
   </section>
 
   <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Simple client-side filter for portfolio items
-  const filterLinks = document.querySelectorAll('.nav-link[data-filter]');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
+    document.addEventListener('DOMContentLoaded', function() {
+      // Simple client-side filter for portfolio items
+      const filterLinks = document.querySelectorAll('.nav-link[data-filter]');
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-  function applyFilter(filter) {
-    portfolioItems.forEach(item => {
-      if (filter === 'all' || item.classList.contains(filter)) {
-        item.style.display = '';
-      } else {
-        item.style.display = 'none';
+      function applyFilter(filter) {
+        portfolioItems.forEach(item => {
+          if (filter === 'all' || item.classList.contains(filter)) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
       }
-    });
-  }
 
-  filterLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const f = this.getAttribute('data-filter') || 'all';
-      applyFilter(f);
-      // mark active link
-      filterLinks.forEach(l => l.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
+      filterLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const f = this.getAttribute('data-filter') || 'all';
+          applyFilter(f);
+          // mark active link
+          filterLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
 
-  // initialize showing all
-  applyFilter('all');
-});
+      // initialize showing all
+      applyFilter('all');
+    });
 </script>
 </body>
 </html>
