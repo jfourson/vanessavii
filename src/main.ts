@@ -207,3 +207,25 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("lang-en")?.addEventListener("click", () => setLanguage("en"));
   document.getElementById("lang-jp")?.addEventListener("click", () => setLanguage("jp"));
 });
+
+
+//new filtering
+document.addEventListener("DOMContentLoaded", () => {
+  const filterLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
+  const portfolioItems = document.querySelectorAll<HTMLElement>(".portfolio-item");
+
+  filterLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault(); // stop the page from jumping
+
+      const filter = link.getAttribute("data-filter");
+
+      portfolioItems.forEach(item => {
+        if (filter === "all" || item.classList.contains(filter!)) {
+          item.style.display = "block"; // show
+        } else {
+          item.style.display = "none"; // hide
+        }
+      });
+    });
+  })
