@@ -209,6 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
 //new filtering
 // document.addEventListener("DOMContentLoaded", () => {
 //   const filterLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");

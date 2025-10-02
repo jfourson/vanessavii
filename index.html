@@ -28,7 +28,7 @@
     <nav class="hero-nav">
       <a href="aboutme.html" class="hero-link">About Me</a>
       <a href="socials.html" class="hero-link">Social Media</a>
-      <a href="#bottom-anchor" class="hero-link">Contact</a>
+      <a class="scroll-to-bottom-button" href="javascript:void(0);">Contact</a>
   </nav>
     <div class="hero-content">
       <p class="hero-subtitle" data-i18n="heroSubtitle1">FASHION MODEL</p>
@@ -157,7 +157,7 @@
     <div class="icon-buttons">
       <!-- Example 1: Add image icons -->
       <a href="https://www.instagram.com/verivanessa/" target="_blank">
-        <img src="../images/Socials/instagram-footer.svg" alt="@verivii" width="20" height="20">
+        <img src="../images/Socials/instagram-footer.png" alt="@verivii" width="20" height="20">
       </a>
       <a href="https://www.tiktok.com/@verivanessa" target="_blank">
         <img src="../images/Socials/tiktok-footer.svg" alt="@verivii" width="20" height="20">
@@ -199,6 +199,18 @@
       // initialize showing all
       applyFilter('all');
     });
+</script>
+<script>
+  document.querySelector('.scroll-to-bottom-button').addEventListener('click', function(event) {
+    // Find the element with the ID 'bottom-anchor'
+    const bottomAnchor = document.getElementById('bottom-anchor');
+    
+    if (bottomAnchor) {
+      bottomAnchor.scrollIntoView({
+        behavior: 'smooth' // Adds the smooth scroll animation
+      });
+    }
+  });
 </script>
 </body>
 </html>
