@@ -258,5 +258,23 @@
   });
 </script>
 
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash === '#contact') {
+    const contact = document.getElementById('contact');
+    if (contact) {
+      // remove the hash from the URL first
+      history.replaceState(null, '', 'index.html');
+
+      // scroll after a tiny delay so layout is ready
+      setTimeout(() => {
+        contact.scrollIntoView({ behavior: 'smooth' });
+      }, 50); // 50ms is usually enough
+    }
+  }
+});
+</script>
+
+
 </body>
 </html>
