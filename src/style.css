@@ -124,8 +124,10 @@ body {
   margin-top: 16px;
 }
 
-.button-container {
-  margin-bottom: 20px;
+.icon-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adds 20 pixels of space between each item */
 }
 
 /* Stats Section */
