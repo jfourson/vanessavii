@@ -259,26 +259,17 @@
 </script>
 
 <script>
-  // On socials.html, when clicking the contact button, set a flag
-  document.addEventListener('DOMContentLoaded', () => {
-    const contactBtn = document.getElementById('contactBtn');
-    if(contactBtn){
-      contactBtn.addEventListener('click', () => {
-        sessionStorage.setItem('scrollToContact', 'true');
-      });
+window.addEventListener('load', () => {
+  // Check if we came from socials.html via the Contact button
+  if (sessionStorage.getItem('scrollToContact') === 'true') {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  });
-
-  // On index.html, check flag and scroll after load
-  window.addEventListener('load', () => {
-    if(sessionStorage.getItem('scrollToContact') === 'true'){
-      const contact = document.getElementById('contact');
-      if(contact){
-        contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      sessionStorage.removeItem('scrollToContact'); // clear flag
-    }
-  });
+    // Clear the flag so it doesn't scroll again on reload
+    sessionStorage.removeItem('scrollToContact');
+  }
+});
 </script>
 
 
