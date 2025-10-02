@@ -259,17 +259,16 @@
 </script>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-  if (window.location.hash === '#contact') {
+window.addEventListener('load', () => { // ensures all images/layout are loaded
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('scroll') === 'contact') {
     const contact = document.getElementById('contact');
     if (contact) {
-      // remove the hash from the URL first
-      history.replaceState(null, '', 'index.html');
+      contact.scrollIntoView({ behavior: 'smooth' });
 
-      // scroll after a tiny delay so layout is ready
-      setTimeout(() => {
-        contact.scrollIntoView({ behavior: 'smooth' });
-      }, 50); // 50ms is usually enough
+      // remove query from URL
+      const url = window.location.href.split('?')[0];
+      history.replaceState(null, '', url);
     }
   }
 });
