@@ -130,10 +130,12 @@ body {
   gap: 20px; /* Adds 20 pixels of space between each item */
 }
 
-.icon-footers {
-  display: flex;
-  flex-direction: column;
+.icon-footers a {
   text-decoration: none;
+}
+
+.icon-footers img {
+  display: inline-block; /* keeps icons aligned nicely */
 }
 
 /* Stats Section */
