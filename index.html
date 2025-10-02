@@ -146,7 +146,7 @@
 </section>
 
   <!-- Footer Section -->
-<section class="contact-section">
+<section id="contact" class="contact-section">
   <div class="container contact-footer">
     <div class="icon-footers">
       <a href="https://www.instagram.com/verivanessa/" target="_blank">
@@ -260,7 +260,7 @@
 
 <script>
 window.addEventListener('load', () => {
-  // Check if we came from socials.html via the Contact button
+  // Check if the user clicked Contact on socials.html
   if (sessionStorage.getItem('scrollToContact') === 'true') {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
