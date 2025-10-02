@@ -145,6 +145,12 @@ body {
   gap: 2px;
 }
 
+@media (max-width: 767px) {
+  .icon-footers {
+    left: 15px;  /* more padding on small screens */
+  }
+}
+
 .contact-text {
   text-align: center;
   flex: 1;                  /* allows it to stay centered */
