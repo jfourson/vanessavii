@@ -387,10 +387,10 @@ html {
 }
 
 .portfolio-gallery {
-  /* display: grid;
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 16px;
-  margin-top: 2rem; */
+  margin-top: 2rem;
   margin-left: 10px;
   margin-right: 10px;
 }
