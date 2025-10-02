@@ -259,22 +259,26 @@
 </script>
 
 <script>
-window.addEventListener('load', () => {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('scroll') === 'contact') {
-    const contact = document.getElementById('contact');
-    if (contact) {
-      // delay scroll slightly to ensure layout is done
-      setTimeout(() => {
-        contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-        // remove query parameter from URL
-        const url = window.location.href.split('?')[0];
-        history.replaceState(null, '', url);
-      }, 100); // 100ms delay usually works
+  // On socials.html, when clicking the contact button, set a flag
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactBtn = document.getElementById('contactBtn');
+    if(contactBtn){
+      contactBtn.addEventListener('click', () => {
+        sessionStorage.setItem('scrollToContact', 'true');
+      });
     }
-  }
-});
+  });
+
+  // On index.html, check flag and scroll after load
+  window.addEventListener('load', () => {
+    if(sessionStorage.getItem('scrollToContact') === 'true'){
+      const contact = document.getElementById('contact');
+      if(contact){
+        contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      sessionStorage.removeItem('scrollToContact'); // clear flag
+    }
+  });
 </script>
 
 
