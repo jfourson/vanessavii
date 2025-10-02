@@ -130,12 +130,21 @@ body {
   gap: 20px; /* Adds 20 pixels of space between each item */
 }
 
-.icon-footers a {
-  text-decoration: none;
+.contact-line {
+  display: flex;
+  align-items: center; /* keep text and icons vertically aligned */
+  gap: 12px;           /* space between items */
+  flex-wrap: wrap;     /* optional: allows wrapping on small screens */
 }
 
-.icon-footers img {
-  display: inline-block; /* keeps icons aligned nicely */
+.icon-footers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* spacing between icons */
+}
+
+.icon-footers a {
+  text-decoration: none;
 }
 
 /* Stats Section */
