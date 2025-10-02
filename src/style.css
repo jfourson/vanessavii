@@ -130,22 +130,24 @@ body {
   gap: 20px; /* Adds 20 pixels of space between each item */
 }
 
-.contact-line {
+.contact-footer {
   display: flex;
-  justify-content: center;  /* keep the whole group centered */
-  align-items: center;      /* vertically align text and icons */
-  gap: 12px;                /* spacing between elements */
-  flex-wrap: wrap;          /* allows wrapping on smaller screens */
+  align-items: center;
+  justify-content: center;  /* centers the contact text block */
+  position: relative;       /* so we can absolutely position the icons */
 }
 
 .icon-footers {
+  position: absolute;
+  left: 0;                  /* push icons all the way left */
   display: flex;
   flex-direction: column;
-  gap: 5px; /* space between icons */
+  gap: 2px;
 }
 
-.icon-footers a {
-  text-decoration: none;
+.contact-text {
+  text-align: center;
+  flex: 1;                  /* allows it to stay centered */
 }
 
 /* Stats Section */
