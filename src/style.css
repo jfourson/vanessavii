@@ -116,6 +116,14 @@ body {
   margin-top: 16px;
 }
 
+.social-title {
+  font-size: clamp(2rem, 7vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin-top: 16px;
+}
+
 /* Stats Section */
 .stats-section {
   padding: 80px 0;
