@@ -132,15 +132,16 @@ body {
 
 .contact-line {
   display: flex;
-  align-items: center; /* keep text and icons vertically aligned */
-  gap: 12px;           /* space between items */
-  flex-wrap: wrap;     /* optional: allows wrapping on small screens */
+  justify-content: center;  /* keep the whole group centered */
+  align-items: center;      /* vertically align text and icons */
+  gap: 12px;                /* spacing between elements */
+  flex-wrap: wrap;          /* allows wrapping on smaller screens */
 }
 
 .icon-footers {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* spacing between icons */
+  gap: 5px; /* space between icons */
 }
 
 .icon-footers a {
