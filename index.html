@@ -160,6 +160,14 @@
       </a>
     </div>
 
+    <!-- Lightbox overlay -->
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-image" src="" alt="">
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+    </div>
+
     <p class="contact-text">
       <span data-i18n="contact">CONTACT:</span>
       <a href="mailto:contact@verivii.com" class="contact-link">contact@verivii.com</a>
@@ -212,5 +220,42 @@
     }
   });
 </script>
+
+<!-- full screen window scroller -->
+<script>
+  const images = document.querySelectorAll('.portfolio-item img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.querySelector('.lightbox-image');
+  const close = document.querySelector('.close');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+    lightboxImage.src = images[index].src;
+    lightbox.style.display = 'flex';
+    currentIndex = index;
+  }
+
+  images.forEach((img, i) => {
+    img.addEventListener('click', () => showImage(i));
+  });
+
+  close.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  prev.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  });
+
+  next.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  });
+</script>
+
 </body>
 </html>
