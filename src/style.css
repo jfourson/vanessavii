@@ -411,3 +411,7 @@ html {
 .portfolio-item img:hover {
   transform: scale(1.05);
 }
+
+.ads1 {
+  display: block; /* or inline-block/flex depending on layout */
+}
