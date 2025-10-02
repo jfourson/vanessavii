@@ -23,7 +23,7 @@
     <nav class="hero-nav">
       <a href="aboutme.html" class="hero-link">About Me</a>
       <a href="socials.html" class="hero-link-on">Social Media</a>
-      <a href="index.html" class="hero-link" id="contactBtn">Contact</a>
+      <a href="index.html#contact" class="hero-link">Contact</a>
 
   </nav>
     <div class="hero-content">
@@ -45,19 +45,6 @@
           <img src="../images/Socials/youtube_icon.png" alt="@verivanessa" width="71" height="50">
         </a>
       </div>
-    </div>
-
-    <script>
-    document.getElementById('contactBtn').addEventListener('click', function(e){
-    e.preventDefault(); // prevent default anchor navigation
-    window.location.href = 'index.html'; // go to homepage
-    setTimeout(() => {
-        const contactSection = document.querySelector('#contact');
-        if(contactSection){
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 100); // slight delay to let page load
-    });
-    </script>   
+    </div> 
 
   </section>
