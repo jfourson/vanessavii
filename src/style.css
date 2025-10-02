@@ -148,7 +148,9 @@ body {
 @media (max-width: 767px) {
   .icon-footers {
     left: 15px;  /* more padding on small screens */
+    gap: 5px;
   }
+
 }
 
 .contact-text {
