@@ -388,16 +388,16 @@ html {
 
 .portfolio-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
-  margin-top: 2rem;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 2rem auto;   /* auto centers it */
+  max-width: 1200px;   /* optional: keeps grid from being too wide on huge screens */
+  padding: 0 10px;     /* even spacing left and right */
 }
 
 @media (max-width: 767px) {
   .portfolio-gallery {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
