@@ -259,16 +259,19 @@
 </script>
 
 <script>
-window.addEventListener('load', () => { // ensures all images/layout are loaded
+window.addEventListener('load', () => {
   const params = new URLSearchParams(window.location.search);
   if (params.get('scroll') === 'contact') {
     const contact = document.getElementById('contact');
     if (contact) {
-      contact.scrollIntoView({ behavior: 'smooth' });
+      // delay scroll slightly to ensure layout is done
+      setTimeout(() => {
+        contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-      // remove query from URL
-      const url = window.location.href.split('?')[0];
-      history.replaceState(null, '', url);
+        // remove query parameter from URL
+        const url = window.location.href.split('?')[0];
+        history.replaceState(null, '', url);
+      }, 100); // 100ms delay usually works
     }
   }
 });
