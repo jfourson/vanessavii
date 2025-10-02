@@ -456,3 +456,26 @@ html {
 
 .lightbox .prev { left: 10px; }
 .lightbox .next { right: 10px; }
+
+@media (max-width: 767px) {
+  .lightbox img {
+    max-width: 95%;
+    max-height: 70vh;  /* shorter to leave room for arrows & close */
+  }
+
+  .lightbox .prev,
+  .lightbox .next {
+    font-size: 28px;     /* smaller arrows */
+    padding: 10px;
+  }
+
+  .lightbox .prev { left: 10px; }
+  .lightbox .next { right: 10px; }
+
+  .lightbox .close {
+    top: 10px;
+    right: 15px;
+    font-size: 32px;     /* smaller close button */
+  }
+}
+
