@@ -55,6 +55,14 @@ body {
   transition: color 0.3s ease;
   cursor: pointer;
 }
+.hero-link-on {
+  color:   #fbbf24;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
 
 .hero-link:hover {
   color: #fbbf24; /* Accent color (gold/yellow) */
