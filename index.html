@@ -224,7 +224,7 @@
 
 <!-- full screen window scroller -->
 <script>
-  let images = []; // start empty
+  let images = []; // stores currently active images
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.querySelector('.lightbox-image');
   const close = document.querySelector('.close');
@@ -232,12 +232,16 @@
   const next = document.querySelector('.next');
   let currentIndex = 0;
 
+  // Collect both portrait and visible portfolio images
   function updateLightboxImages() {
-    // ✅ only grab *visible* images
-    images = Array.from(document.querySelectorAll('.portfolio-item img'))
+    const portraitImages = Array.from(document.querySelectorAll('.portrait-image img'));
+    const visiblePortfolioImages = Array.from(document.querySelectorAll('.portfolio-item img'))
       .filter(img => img.closest('.portfolio-item').style.display !== 'none');
 
-    // rebind click listeners
+    // Combine them
+    images = [...portraitImages, ...visiblePortfolioImages];
+
+    // Bind click handlers
     images.forEach((img, i) => {
       img.onclick = () => showImage(i);
     });
@@ -245,23 +249,37 @@
 
   function showImage(index) {
     if (!images.length) return;
-    lightboxImage.src = images[index].src;
-    lightbox.style.display = 'flex';
     currentIndex = index;
+    lightboxImage.src = images[currentIndex].src;
+    lightbox.style.display = 'flex';
   }
 
-  close.onclick = () => (lightbox.style.display = 'none');
+  close.onclick = () => {
+    lightbox.style.display = 'none';
+  };
+
   prev.onclick = () => {
+    if (!images.length) return;
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     showImage(currentIndex);
   };
+
   next.onclick = () => {
+    if (!images.length) return;
     currentIndex = (currentIndex + 1) % images.length;
     showImage(currentIndex);
   };
 
-  // initialize once when page loads
+  // Initialize once page loads
   document.addEventListener('DOMContentLoaded', updateLightboxImages);
+
+  // Refresh after filtering
+  const filterLinks = document.querySelectorAll('.nav-link[data-filter]');
+  filterLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(updateLightboxImages, 100); // refresh after filter applies
+    });
+  });
 </script>
 
 <script>
