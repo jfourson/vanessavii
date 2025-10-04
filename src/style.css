@@ -428,7 +428,7 @@ html {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.9);
+  background: rgba(78, 77, 77, 0.9);
   justify-content: center;
   align-items: center;
   z-index: 9999;              /* stays above everything else */
@@ -443,7 +443,7 @@ html {
   position: absolute;
   top: 20px; right: 30px;
   font-size: 40px;
-  color: #fff;
+  color: rgb(245, 140, 235);
   cursor: pointer;
 }
 
@@ -453,7 +453,7 @@ html {
   top: 50%;                      /* vertical middle of screen */
   transform: translateY(-50%);   /* center exactly */
   font-size: 40px;
-  color: white;
+  color: rgb(245, 140, 235);
   cursor: pointer;
   padding: 16px;
   user-select: none;

@@ -199,9 +199,9 @@
           e.preventDefault();
           const f = this.getAttribute('data-filter') || 'all';
           applyFilter(f);
-          // mark active link
           filterLinks.forEach(l => l.classList.remove('active'));
           this.classList.add('active');
+          updateLightboxImages(); // ✅ refresh lightbox after filtering
         });
       });
 
@@ -224,38 +224,44 @@
 
 <!-- full screen window scroller -->
 <script>
-  const images = document.querySelectorAll('.portfolio-item img');
+  let images = []; // start empty
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.querySelector('.lightbox-image');
   const close = document.querySelector('.close');
   const prev = document.querySelector('.prev');
   const next = document.querySelector('.next');
-
   let currentIndex = 0;
 
+  function updateLightboxImages() {
+    // ✅ only grab *visible* images
+    images = Array.from(document.querySelectorAll('.portfolio-item img'))
+      .filter(img => img.closest('.portfolio-item').style.display !== 'none');
+
+    // rebind click listeners
+    images.forEach((img, i) => {
+      img.onclick = () => showImage(i);
+    });
+  }
+
   function showImage(index) {
+    if (!images.length) return;
     lightboxImage.src = images[index].src;
     lightbox.style.display = 'flex';
     currentIndex = index;
   }
 
-  images.forEach((img, i) => {
-    img.addEventListener('click', () => showImage(i));
-  });
-
-  close.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-  });
-
-  prev.addEventListener('click', () => {
+  close.onclick = () => (lightbox.style.display = 'none');
+  prev.onclick = () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     showImage(currentIndex);
-  });
-
-  next.addEventListener('click', () => {
+  };
+  next.onclick = () => {
     currentIndex = (currentIndex + 1) % images.length;
     showImage(currentIndex);
-  });
+  };
+
+  // initialize once when page loads
+  document.addEventListener('DOMContentLoaded', updateLightboxImages);
 </script>
 
 <script>
