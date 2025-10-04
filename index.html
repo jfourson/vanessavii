@@ -224,62 +224,76 @@
 
 <!-- full screen window scroller -->
 <script>
-  let images = []; // stores currently active images
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.querySelector('.lightbox-image');
   const close = document.querySelector('.close');
   const prev = document.querySelector('.prev');
   const next = document.querySelector('.next');
+
+  let images = [];
   let currentIndex = 0;
 
-  // Collect both portrait and visible portfolio images
-  function updateLightboxImages() {
-    const portraitImages = Array.from(document.querySelectorAll('.portrait-image img'));
-    const visiblePortfolioImages = Array.from(document.querySelectorAll('.portfolio-item img'))
-      .filter(img => img.closest('.portfolio-item').style.display !== 'none');
-
-    // Combine them
-    images = [...portraitImages, ...visiblePortfolioImages];
-
-    // Bind click handlers
-    images.forEach((img, i) => {
-      img.onclick = () => showImage(i);
-    });
+  // Function to open lightbox for a given group
+  function openLightbox(groupImages, index) {
+    images = groupImages; // store the current image set (either stats or gallery)
+    currentIndex = index;
+    showImage();
   }
 
-  function showImage(index) {
+  function showImage() {
     if (!images.length) return;
-    currentIndex = index;
     lightboxImage.src = images[currentIndex].src;
     lightbox.style.display = 'flex';
   }
 
+  // Close
   close.onclick = () => {
     lightbox.style.display = 'none';
   };
 
+  // Navigation
   prev.onclick = () => {
     if (!images.length) return;
     currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage(currentIndex);
+    showImage();
   };
-
   next.onclick = () => {
     if (!images.length) return;
     currentIndex = (currentIndex + 1) % images.length;
-    showImage(currentIndex);
+    showImage();
   };
 
-  // Initialize once page loads
-  document.addEventListener('DOMContentLoaded', updateLightboxImages);
+  // Initialize click events
+  function setupLightbox() {
+    // 1️⃣ My Stats portraits — static group
+    const portraitImages = Array.from(document.querySelectorAll('.portrait-image img'));
+    portraitImages.forEach((img, i) => {
+      img.onclick = () => openLightbox(portraitImages, i);
+    });
 
-  // Refresh after filtering
-  const filterLinks = document.querySelectorAll('.nav-link[data-filter]');
-  filterLinks.forEach(link => {
+    // 2️⃣ Portfolio gallery — visible images only
+    updateGalleryLightbox();
+  }
+
+  // Rebuild visible gallery group after filtering
+  function updateGalleryLightbox() {
+    const visiblePortfolioImages = Array.from(document.querySelectorAll('.portfolio-item img'))
+      .filter(img => img.closest('.portfolio-item').style.display !== 'none');
+
+    visiblePortfolioImages.forEach((img, i) => {
+      img.onclick = () => openLightbox(visiblePortfolioImages, i);
+    });
+  }
+
+  // Listen for filter changes
+  document.querySelectorAll('.nav-link[data-filter]').forEach(link => {
     link.addEventListener('click', () => {
-      setTimeout(updateLightboxImages, 100); // refresh after filter applies
+      setTimeout(updateGalleryLightbox, 100);
     });
   });
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', setupLightbox);
 </script>
 
 <script>
