@@ -252,6 +252,16 @@ body {
   background-color: white;
 }
 
+.digtals-image {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+  justify-content: center;
+}
+
+
+
 .nav-menu {
   display: flex;
   justify-content: center;
