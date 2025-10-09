@@ -252,22 +252,37 @@ body {
   background-color: white;
 }
 
-.digtals-section {
+/* Digitals Section */
+.digitals-section {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.digitals-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.digitals-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
-  gap: 16px;
-  margin: 2rem auto;   /* auto centers it */
-  max-width: 1200px;   /* optional: keeps grid from being too wide on huge screens */
-  padding: 0 10px;     /* even spacing left and right */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
 }
 
-.digitals-image{
+.digital-item img {
   width: 100%;
-  height: auto;
+  max-width: 300px;
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.digital-item img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
 
 
 .nav-menu {

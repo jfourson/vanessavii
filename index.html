@@ -91,44 +91,20 @@
     </div>
   </section>
 
-
-  <!-- Digitals Section -->
-  <section class="digitals-section container">
-    <div class="container">
-      <div class="stats-content">
-        <div class="stats-text">
-          <h2 class="stats-title" data-i18n="statsTitle">Digitals</h2>
-        </div>
-        <!-- Portrait Images -->
-        <div class="portrait-images">
-          <div class="digtals-image">
-            <img src="images/portrait1.jpg" alt="Vanessa Portrait 1" />
-          </div>
-          <div class="digtals-image">
-            <img src="images/portrait1.jpg" alt="Vanessa Portrait 2" />
-          </div>
-          <div class="digtals-image">
-            <img src="images/portrait1.jpg" alt="Vanessa Portrait 3" />
-          </div>
-          <div class="digtals-image">
-            <img src="images/portrait1.jpg" alt="Vanessa Portrait 4" />
-          </div>
-          <div class="digtals-image">
-            <img src="images/portrait1.jpg" alt="Vanessa Portrait 5" />
-          </div>
-          <div class="digtals-image">
-            <img src="images/portrait1.jpg" alt="Vanessa Portrait 6" />
-          </div>
-          <div class="digtals-image">
-            <img src="images/portrait1.jpg" alt="Vanessa Portrait 7" />
-          </div>
-          <div class="digtals-image">
-            <img src="images/portrait1.jpg" alt="Vanessa Portrait 8" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Digitals Section -->
+<section class="digitals-section container">
+  <h2 class="stats-title" data-i18n="digitals">DIGITALS</h2>
+  <div class="digitals-grid">
+    <div class="digital-item"><img src="images/portrait1.jpg" alt="Digital 1"></div>
+    <div class="digital-item"><img src="images/portrait1.jpg" alt="Digital 2"></div>
+    <div class="digital-item"><img src="images/portrait1.jpg" alt="Digital 3"></div>
+    <div class="digital-item"><img src="images/portrait1.jpg" alt="Digital 4"></div>
+    <div class="digital-item"><img src="images/portrait1.jpg" alt="Digital 5"></div>
+    <div class="digital-item"><img src="images/portrait1.jpg" alt="Digital 6"></div>
+    <div class="digital-item"><img src="images/portrait1.jpg" alt="Digital 7"></div>
+    <div class="digital-item"><img src="images/portrait1.jpg" alt="Digital 8"></div>
+  </div>
+</section>
 
   <!-- Navigation/Portfolio Sections -->
   <section class="portfolio-nav">
@@ -312,6 +288,12 @@
 
     // 2️⃣ Portfolio gallery — visible images only
     updateGalleryLightbox();
+
+      // 3️⃣ Digitals section — static group of 8
+  const digitalImages = Array.from(document.querySelectorAll('.digital-item img'));
+  digitalImages.forEach((img, i) => {
+    img.onclick = () => openLightbox(digitalImages, i);
+  });
   }
 
   // Rebuild visible gallery group after filtering
