@@ -254,7 +254,7 @@ body {
 
 /* Digitals Section */
 .digitals-section {
-  padding: 80px 0;
+  padding: 0 0 80px;
   background-color: #fafafa; /* same as stats */
   margin-bottom: 160px; /* matches spacing of stats section */
   position: relative;
@@ -282,6 +282,7 @@ body {
 .digital-item img {
   width: 100%;
   max-width: 300px;
+  aspect-ratio: 3/4;
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
