@@ -269,7 +269,7 @@ body {
   margin-bottom: 40px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding-left: 20px; /* matches .container inner spacing for alignment */
+  padding-left: 0px; /* matches .container inner spacing for alignment */
 }
 
 .digitals-grid {
@@ -375,6 +375,11 @@ body {
 
   .stats-grid {
     gap: 32px;
+  }
+
+  .digital-item {
+    width: 66.667%;
+    justify-content: flex-start;
   }
 }
 
