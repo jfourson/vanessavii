@@ -256,13 +256,9 @@ body {
 .digitals-section {
   padding: 80px 0;
   background-color: #fafafa; /* same as stats */
-  margin-bottom: 80px; /* matches spacing of stats section */
-  width: 100vw; /* full viewport width */
+  margin-bottom: 160px; /* matches spacing of stats section */
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw; /* ensures background spans full width even inside container */
+  
 }
 
 .digitals-section h2 {
