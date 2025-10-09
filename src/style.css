@@ -283,6 +283,7 @@ body {
   width: 100%;
   max-width: 300px;
   aspect-ratio: 3/4;
+  object-fit: cover;
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
