@@ -252,12 +252,20 @@ body {
   background-color: white;
 }
 
-.digtals-image {
+.digtals-section {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 2rem auto;   /* auto centers it */
+  max-width: 1200px;   /* optional: keeps grid from being too wide on huge screens */
+  padding: 0 10px;     /* even spacing left and right */
+}
+
+.digitals-image{
   width: 100%;
-  justify-content: center;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
 
