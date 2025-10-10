@@ -463,9 +463,9 @@ html {
   .portfolio-gallery {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .digitals-section {
-    grid-template-columns: repeat(2,1fr);
+  .digitals-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+    gap: 10px; /* smaller gap for mobile */
   }
 }
 
