@@ -463,6 +463,10 @@ html {
   .portfolio-gallery {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .digitals-section {
+    grid-template-columns: repeat(2,1fr);
+  }
 }
 
 .portfolio-item img {
