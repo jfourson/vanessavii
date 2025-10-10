@@ -364,6 +364,11 @@ body {
     align-items: flex-start;
   }
 
+  .digitals-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
   .stats-text {
     width: 33.333%;
   }
