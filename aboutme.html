@@ -1,0 +1,115 @@
+<!-- a talent section with photos and list of talents -->
+ <!-- places that i've modeled 
+           United States
+                 New York
+                     Miami
+                 Nashville
+         Canada
+                  Toronto
+              Vancouver
+ 
+ 
+ 
+ 
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Vanessa Vii</title>
+  <meta name="description" content="About Vanessa Vii — New York Fashion Model" />
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background" style="background-image: url('images/aboutme-hero.jpg');"></div>
+    <div class="hero-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="home-nav">
+      <a href="index.html" class="hero-link">Home</a>
+    </nav>
+    <nav class="hero-nav">
+      <a href="socials.html" class="hero-link">Social Media</a>
+      <a class="hero-link scroll-to-bottom-button" href="javascript:void(0);">Contact</a>
+    </nav>
+
+    <div class="hero-content">
+      <p class="hero-subtitle">ABOUT</p>
+      <h1 class="hero-title">VANESSA VII</h1>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-content">
+        <div class="stats-text">
+          <h2 class="stats-title">MY STORY</h2>
+          <p style="font-size: 18px; color: #4b5563; line-height: 1.8; max-width: 700px;">
+            Vanessa Vii is a New York–based fashion model known for her striking presence and versatile look.  
+            Originally from Ukraine, Vanessa’s journey into modeling began with a love for visual art and self-expression.  
+            Her work spans runway, editorial, advertising, and high-fashion campaigns, bringing authenticity and emotion to every shoot.
+          </p>
+          <br />
+          <p style="font-size: 18px; color: #4b5563; line-height: 1.8; max-width: 700px;">
+            Beyond the camera, Vanessa is passionate about travel, sustainability, and the evolving intersection of fashion and culture.  
+            She believes modeling is not just about aesthetics — it's about telling a story through movement, light, and perspective.  
+            Her creative energy and professionalism have earned her collaborations with both emerging and global brands.
+          </p>
+          <br />
+          <p style="font-size: 18px; color: #4b5563; line-height: 1.8; max-width: 700px;">
+            When she’s not on set, Vanessa enjoys exploring new cities, curating digital art, and connecting with her audience through her growing social platforms.
+          </p>
+        </div>
+
+        <!-- Portrait -->
+        <div class="portrait-images">
+          <div class="portrait-image">
+            <img src="images/aboutme-portrait.jpg" alt="Vanessa Vii portrait" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Footer -->
+  <section id="contact" class="contact-section">
+    <div class="container contact-footer">
+      <div class="icon-footers">
+        <a href="https://www.instagram.com/verivanessa/" target="_blank">
+          <img src="../images/Socials/instagram-footer.png" width="20" height="20">
+        </a>
+        <a href="https://www.tiktok.com/@verivanessa" target="_blank">
+          <img src="../images/Socials/tiktok-footer.png" width="20" height="20">
+        </a>
+        <a href="https://www.youtube.com/@VeriVanessa" target="_blank">
+          <img src="../images/Socials/youtube-footer.png" width="22" height="22">
+        </a>
+      </div>
+
+      <p class="contact-text">
+        <span>CONTACT:</span>
+        <a href="mailto:contact@verivii.com" class="contact-link">contact@verivii.com</a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    document.querySelector('.scroll-to-bottom-button').addEventListener('click', function() {
+      const bottomAnchor = document.getElementById('contact');
+      if (bottomAnchor) {
+        bottomAnchor.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
+</body>
+</html>
