@@ -662,7 +662,7 @@ html {
   aspect-ratio: 9 / 16; /* keep true vertical shorts ratio */
   overflow: hidden;
   border-radius: 10px;
-  background: #000;
+  background: transparent; /* no gray/black background outside the video */
 }
 
 .short-wrapper iframe {
@@ -699,21 +699,24 @@ html {
   .shows-grid-images {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
 
   .show-item {
     width: 100%;
-    max-width: 98vw;
-    border-radius: 8px;
+    max-width: 100%;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    align-items: stretch;
   }
 
   .show-item img {
+    width: 100%;
     height: auto !important;
   }
 
   .shows-grid-images .show-item img {
-    width: 100%;
-    height: auto;
     object-fit: contain; /* show full image, no cropping */
   }
 
