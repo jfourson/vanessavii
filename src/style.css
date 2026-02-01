@@ -659,8 +659,7 @@ html {
 .short-wrapper {
   position: relative;
   width: 300px;
-  padding-bottom: 178%; /* vertical 9:16 */
-  height: 0;
+  aspect-ratio: 9 / 16; /* keep true vertical shorts ratio */
   overflow: hidden;
   border-radius: 10px;
   background: #000;
@@ -712,6 +711,12 @@ html {
     height: auto !important;
   }
 
+  .shows-grid-images .show-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* show full image, no cropping */
+  }
+
   .video-wrapper iframe {
     border-radius: 8px;
   }
@@ -732,10 +737,12 @@ html {
   }
 
   .short-wrapper {
-    max-width: 240px;
+    width: 100%;
+    max-width: 160px;      /* smaller width so height isn’t massive */
+    aspect-ratio: 9 / 16;  /* keep true Shorts ratio */
   }
 
   .short-item:nth-child(3) .short-wrapper {
-    max-width: 260px;
+    max-width: 180px;
   }
 }
