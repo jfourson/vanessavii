@@ -616,10 +616,10 @@ html {
 /* Video directly below images, aligned and spanning the combined width of images */
 .show-item.video-item {
   width: 100%;
-  max-width: 1270px; /* 3 * 410px (image max-width) + 2 * 40px (gap) */
+  max-width: 1350px; /* 3 * 410px (image max-width) + 2 * 40px (gap) = 1230px, but allow a bit more for borders/padding */
   margin: 0 auto;
   margin-top: 0; /* Remove extra gap between images and video */
-  border-radius: 24px;
+  border-radius: 10px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.24);
   display: flex;
   justify-content: center;
@@ -630,10 +630,11 @@ html {
 .video-wrapper {
   position: relative;
   width: 100%;
+  max-width: 1350px;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 10px;
   background: #000;
 }
 .show-item.video-item iframe {
@@ -643,7 +644,7 @@ html {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 24px;
+  border-radius: 10px;
   display: block;
   background: #000;
   min-width: 0;
