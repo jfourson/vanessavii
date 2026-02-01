@@ -229,7 +229,12 @@
     <div id="lightbox" class="lightbox">
       <span class="close">&times;</span>
       <a class="prev">&#10094;</a>
-      <img class="lightbox-image" src="" alt="">
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="">
+        <div class="lightbox-video-wrapper">
+          <iframe class="lightbox-video" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+      </div>
       <a class="next">&#10095;</a>
     </div>
 
@@ -264,41 +269,61 @@
 <script>
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.querySelector('.lightbox-image');
+  const lightboxVideoWrapper = document.querySelector('.lightbox-video-wrapper');
+  const lightboxVideo = document.querySelector('.lightbox-video');
   const close = document.querySelector('.close');
   const prev = document.querySelector('.prev');
   const next = document.querySelector('.next');
 
-  let images = [];
+  let items = [];
   let currentIndex = 0;
 
-  // Function to open lightbox for a given group
-  function openLightbox(groupImages, index) {
-    images = groupImages; // store the current image set (either stats or gallery)
+  // Function to open lightbox for a given group (images or videos)
+  function openLightbox(groupItems, index) {
+    items = groupItems; // store the current set (can include images and synthetic video items)
     currentIndex = index;
-    showImage();
+    showItem();
   }
 
-  function showImage() {
-    if (!images.length) return;
-    lightboxImage.src = images[currentIndex].src;
+  function showItem() {
+    if (!items.length) return;
+    const el = items[currentIndex];
+    const type = el.dataset && el.dataset.type ? el.dataset.type : 'image';
+
+    if (type === 'video') {
+      // Show video
+      const src = el.dataset.videoSrc;
+      lightboxVideoWrapper.style.display = 'block';
+      lightboxVideo.src = src;
+      lightboxImage.style.display = 'none';
+    } else {
+      // Show image
+      lightboxImage.src = el.src;
+      lightboxImage.style.display = 'block';
+      lightboxVideoWrapper.style.display = 'none';
+      lightboxVideo.src = '';
+    }
+
     lightbox.style.display = 'flex';
   }
 
   // Close
   close.onclick = () => {
     lightbox.style.display = 'none';
+    // stop any playing video
+    lightboxVideo.src = '';
   };
 
   // Navigation
   prev.onclick = () => {
-    if (!images.length) return;
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage();
+    if (!items.length) return;
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    showItem();
   };
   next.onclick = () => {
-    if (!images.length) return;
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage();
+    if (!items.length) return;
+    currentIndex = (currentIndex + 1) % items.length;
+    showItem();
   };
 
   // Initialize click events
@@ -318,10 +343,33 @@
       });
     });
 
-    // 3️⃣ Shows section — three still images only (exclude Shorts)
-    const showsImages = Array.from(document.querySelectorAll('#shows-section .shows-grid-images:not(.shorts-row) .show-item img'));
-    showsImages.forEach((img, i) => {
-      img.onclick = () => openLightbox(showsImages, i);
+    // 3️⃣ Shows section — still images + main video + Shorts as slides
+    const showStills = Array.from(document.querySelectorAll('#shows-section .shows-grid-images:not(.shorts-row) .show-item img'));
+
+    // Build a mixed list (images + synthetic video entries)
+    const showsGroup = [...showStills];
+
+    // Add main show video as a slide
+    const mainShowIframe = document.querySelector('#shows-section .video-wrapper iframe');
+    if (mainShowIframe) {
+      const mainVideoItem = document.createElement('div');
+      mainVideoItem.dataset.type = 'video';
+      mainVideoItem.dataset.videoSrc = mainShowIframe.src;
+      showsGroup.push(mainVideoItem);
+    }
+
+    // Add each Short as its own video slide
+    const shortIframes = Array.from(document.querySelectorAll('#shows-section .shorts-row iframe'));
+    shortIframes.forEach(iframe => {
+      const shortItem = document.createElement('div');
+      shortItem.dataset.type = 'video';
+      shortItem.dataset.videoSrc = iframe.src;
+      showsGroup.push(shortItem);
+    });
+
+    // Clicking a still image opens the mixed group, starting at that image index
+    showStills.forEach((img, i) => {
+      img.onclick = () => openLightbox(showsGroup, i);
     });
 
     // 4️⃣ Digitals section — static group of 8
