@@ -775,3 +775,28 @@ html {
   border: none;
   border-radius: 10px;
 }
+
+
+/* FORCE the main show video to full container width */
+.shows-section .show-item.video-item {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 40px 0 0 0 !important;
+  padding: 0 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.24) !important;
+}
+
+/* Make the wrapper fill the width */
+.shows-section .video-wrapper {
+  width: 100% !important;
+  padding-bottom: 56.25% !important;  /* 16:9 ratio */
+  border-radius: 10px !important;
+}
+
+/* Make the iframe stretch perfectly */
+.shows-section .video-wrapper iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 10px !important;
+}
