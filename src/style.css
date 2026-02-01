@@ -693,6 +693,11 @@ html {
   object-fit: cover;
 }
 
+/* Ensure SHOWS section still images are fully visible (no cropping) */
+.shows-section .shows-grid-images:not(.shorts-row) .show-item img {
+  object-fit: contain;
+}
+
 /* Staggered heights */
 
 .show-item:hover {
