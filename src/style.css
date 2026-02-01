@@ -615,26 +615,25 @@ html {
 
 /* Video directly below images, aligned and spanning the combined width of images */
 .show-item.video-item {
-  width: 100%;
-  max-width: 1350px; /* 3 * 410px (image max-width) + 2 * 40px (gap) = 1230px, but allow a bit more for borders/padding */
-  margin: 0 auto;
-  margin-top: 0; /* Remove extra gap between images and video */
-  border-radius: 10px;
+  width: calc(3 * 410px + 2 * 40px); /* exactly matches combined width of 3 .show-item images + 2 gaps */
+  margin: 40px auto 0 auto;
+  border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.24);
   display: flex;
   justify-content: center;
   align-items: center;
   background: #101010;
   padding: 0;
+  /* Remove max-width constraint so it fills the calculated width */
 }
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1350px;
+  /* Remove max-width so it fills the .video-item width */
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 20px;
   background: #000;
 }
 .show-item.video-item iframe {
@@ -644,7 +643,7 @@ html {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   display: block;
   background: #000;
   min-width: 0;
@@ -668,13 +667,13 @@ html {
   .shows-grid-images .show-item:nth-child(2) img { height: 270px; }
   .shows-grid-images .show-item:nth-child(3) img { height: 230px; }
   .show-item.video-item {
-    max-width: calc(3 * 310px + 2 * 18px); /* match image row width */
+    width: calc(3 * 310px + 2 * 18px); /* match image row width exactly */
     border-radius: 14px;
-    margin-top: 0;
+    margin-top: 24px;
+    max-width: none;
   }
   .show-item.video-item .video-wrapper {
     border-radius: 14px;
-    /* padding-bottom remains 56.25% for aspect ratio */
   }
   .show-item.video-item iframe {
     border-radius: 14px;
@@ -699,9 +698,10 @@ html {
   .shows-grid-images .show-item:nth-child(2) img { height: 130px; }
   .shows-grid-images .show-item:nth-child(3) img { height: 110px; }
   .show-item.video-item {
-    max-width: 98vw;
+    width: 98vw;
     border-radius: 9px;
-    margin-top: 0;
+    margin-top: 12px;
+    max-width: none;
   }
   .show-item.video-item .video-wrapper {
     border-radius: 9px;
@@ -738,9 +738,10 @@ html {
     height: 70px;
   }
   .show-item.video-item {
-    max-width: 98vw;
+    width: 98vw;
     border-radius: 5px;
-    margin-top: 0;
+    margin-top: 8px;
+    max-width: none;
   }
   .show-item.video-item .video-wrapper {
     border-radius: 5px;
