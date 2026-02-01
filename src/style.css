@@ -703,19 +703,17 @@ html {
   }
 
   .show-item {
-    width: 100%;
-    max-width: 100%;
+    width: auto;
+    max-width: 360px;
     background: transparent;
     box-shadow: none;
     align-items: stretch;
-  }
-
-  .show-item img {
-    width: 100%;
-    height: auto !important;
+    overflow: visible;
   }
 
   .shows-grid-images .show-item img {
+    width: 100%;
+    height: auto !important;
     object-fit: contain; /* show full image, no cropping */
   }
 
