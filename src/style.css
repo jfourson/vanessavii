@@ -549,6 +549,7 @@ html {
 
 
 /* Shows Section */
+/* Shows Section */
 .shows-section {
   background-color: #000;
   color: #fff;
@@ -572,7 +573,7 @@ html {
   justify-content: center;
   align-items: center; /* Vertically center-align the images */
   gap: 40px; /* Slightly larger gap for bigger images */
-  margin-bottom: 36px;
+  margin-bottom: 0; /* Remove extra space below images */
   flex-wrap: wrap;
 }
 
@@ -612,13 +613,12 @@ html {
   transform: scale(1.045);
 }
 
-/* Video centered below images, spanning combined width, minimal horizontal margin */
-/* Video centered below images, spanning combined width, minimal horizontal margin */
+/* Video directly below images, aligned and spanning the combined width of images */
 .show-item.video-item {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1270px; /* 3 * 410px (image max-width) + 2 * 40px (gap) */
   margin: 0 auto;
-  margin-top: 48px;
+  margin-top: 0; /* Remove extra gap between images and video */
   border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.24);
   display: flex;
@@ -641,6 +641,7 @@ html {
 @media (max-width: 1200px) {
   .shows-grid-images {
     gap: 18px;
+    margin-bottom: 0;
   }
   .show-item {
     max-width: 310px;
@@ -654,9 +655,9 @@ html {
   .shows-grid-images .show-item:nth-child(2) img { height: 270px; }
   .shows-grid-images .show-item:nth-child(3) img { height: 230px; }
   .show-item.video-item {
-    max-width: 98vw;
+    max-width: calc(3 * 310px + 2 * 18px); /* match image row width */
     border-radius: 14px;
-    margin-top: 24px;
+    margin-top: 0;
   }
   .show-item.video-item iframe {
     height: 260px;
@@ -668,7 +669,7 @@ html {
 @media (max-width: 900px) {
   .shows-grid-images {
     gap: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 0;
   }
   .show-item {
     max-width: 98vw;
@@ -683,9 +684,9 @@ html {
   .shows-grid-images .show-item:nth-child(2) img { height: 130px; }
   .shows-grid-images .show-item:nth-child(3) img { height: 110px; }
   .show-item.video-item {
-    max-width: 100vw;
+    max-width: 98vw;
     border-radius: 9px;
-    margin-top: 10px;
+    margin-top: 0;
   }
   .show-item.video-item iframe {
     height: 90px;
@@ -706,7 +707,7 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 4px;
-    margin-bottom: 8px;
+    margin-bottom: 0;
   }
   .show-item,
   .show-item img {
@@ -721,9 +722,9 @@ html {
     height: 70px;
   }
   .show-item.video-item {
-    max-width: 100vw;
+    max-width: 98vw;
     border-radius: 5px;
-    margin-top: 7px;
+    margin-top: 0;
   }
   .show-item.video-item iframe {
     height: 48px;
