@@ -614,20 +614,10 @@ html {
 }
 
 /* Video directly below images, aligned and spanning the combined width of images */
-.show-item.video-item {
-  width: 100%;
-  max-width: none;
-  margin: 40px auto 0 auto;
-  border-radius: 10px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.24);
-  display: block;
-  background: #101010;
-  padding: 0;
-}
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 62%; /* more cinematic aspect */
+  padding-bottom: 56.25%; /* more cinematic aspect */
   height: 0;
   overflow: hidden;
   border-radius: 10px;
