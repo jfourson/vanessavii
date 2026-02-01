@@ -726,11 +726,6 @@ html {
     width: 98vw;
     border-radius: 5px;
   }
-  .shows-grid-images .show-item:nth-child(1) img,
-  .shows-grid-images .show-item:nth-child(2) img,
-  .shows-grid-images .show-item:nth-child(3) img {
-    height: 70px;
-  }
   .show-item.video-item {
     /* width: 98vw;  deleted per instructions */
     border-radius: 5px;
@@ -778,7 +773,7 @@ html {
 /* FORCE the main show video to full container width */
 .shows-section .show-item.video-item {
   width: 100% !important;
-  max-width: 1300px !important; /* EXACT width of 3 images row */
+  max-width: calc(3 * 410px + 2 * 40px) !important;
   margin: 40px auto 0 auto !important;
   padding: 0 !important;
   border-radius: 10px !important;
@@ -814,13 +809,27 @@ html {
 
   .short-wrapper {
     width: 100%;
-    max-width: 220px;     /* keep vertical video slim */
-    padding-bottom: 178%; /* maintain 9:16 ratio */
+    max-width: 240px;     /* correct vertical shorts width */
+    padding-bottom: 178%; /* maintain true 9:16 ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
   }
 
+  /* first two shorts stay side by side */
+  .short-item:nth-child(1) .short-wrapper,
+  .short-item:nth-child(2) .short-wrapper {
+    max-width: 240px !important;
+  }
+
+  /* last short centered below */
   .shorts-row .short-item:nth-child(3) {
-    flex: 0 1 100%;        /* full width for the last short */
+    flex: 0 1 100%;
     display: flex;
     justify-content: center;
+  }
+
+  .shorts-row .short-item:nth-child(3) .short-wrapper {
+    max-width: 260px !important;
   }
 }
