@@ -581,6 +581,7 @@ html {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease;
 }
 
 /* Images and iframes will have variable height for masonry effect */
@@ -605,6 +606,10 @@ html {
 }
 
 /* Optional hover effect to enhance interactivity */
+.show-item:hover {
+  transform: translateY(-8px);
+}
+
 .show-item img:hover,
 .show-item iframe:hover {
   transform: scale(1.03);
