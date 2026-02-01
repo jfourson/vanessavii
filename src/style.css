@@ -616,7 +616,7 @@ html {
 /* Video directly below images, aligned and spanning the combined width of images */
 .show-item.video-item {
   width: 100%;
-  max-width: calc(3 * 410px + 2 * 40px);
+  max-width: 1500px; /* dramatically larger width */
   margin: 40px auto 0 auto;
   border-radius: 10px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.24);
@@ -629,7 +629,7 @@ html {
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* keep 16:9 */
+  padding-bottom: 62%; /* more cinematic aspect */
   height: 0;
   overflow: hidden;
   border-radius: 10px;
