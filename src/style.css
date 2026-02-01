@@ -14,7 +14,7 @@ body {
 
 /* Container */
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -616,13 +616,11 @@ html {
 /* Video directly below images, aligned and spanning the combined width of images */
 .show-item.video-item {
   width: 100%;
-  max-width: 1500px; /* dramatically larger width */
+  max-width: none;
   margin: 40px auto 0 auto;
   border-radius: 10px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.24);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   background: #101010;
   padding: 0;
 }
@@ -663,7 +661,7 @@ html {
   .shows-grid-images .show-item:nth-child(2) img { height: 270px; }
   .shows-grid-images .show-item:nth-child(3) img { height: 230px; }
   .show-item.video-item {
-    width: calc(3 * 310px + 2 * 18px); /* match image row width exactly */
+    /* width: calc(3 * 310px + 2 * 18px);  deleted per instructions */
     border-radius: 14px;
     margin-top: 24px;
     max-width: none;
@@ -694,7 +692,7 @@ html {
   .shows-grid-images .show-item:nth-child(2) img { height: 130px; }
   .shows-grid-images .show-item:nth-child(3) img { height: 110px; }
   .show-item.video-item {
-    width: 98vw;
+    /* width: 98vw;  deleted per instructions */
     border-radius: 9px;
     margin-top: 12px;
     max-width: none;
@@ -734,7 +732,7 @@ html {
     height: 70px;
   }
   .show-item.video-item {
-    width: 98vw;
+    /* width: 98vw;  deleted per instructions */
     border-radius: 5px;
     margin-top: 8px;
     max-width: none;
@@ -780,7 +778,7 @@ html {
 /* FORCE the main show video to full container width */
 .shows-section .show-item.video-item {
   width: 100% !important;
-  max-width: 75% !important;
+  max-width: 1300px !important; /* EXACT width of 3 images row */
   margin: 40px auto 0 auto !important;
   padding: 0 !important;
   border-radius: 10px !important;
