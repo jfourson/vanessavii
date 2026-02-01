@@ -567,6 +567,11 @@ html {
   letter-spacing: 0.04em;
 }
 
+.shows-inner {
+  max-width: calc(3 * 410px + 2 * 40px); /* match 3 images + 2 gaps */
+  margin: 0 auto;
+}
+
 /* ---------- IMAGE GRID (3 images) ---------- */
 
 .shows-grid-images {
@@ -576,6 +581,7 @@ html {
   gap: 40px;
   flex-wrap: wrap;
   margin-bottom: 40px;
+  width: 100%;
 }
 
 .show-item {
@@ -610,8 +616,8 @@ html {
 /* ---------- MAIN VIDEO BELOW (exact width of 3 images) ---------- */
 
 .show-item.video-item {
-  width: calc(3 * 410px + 2 * 40px);  /* exact width of the 3 images */
-  max-width: calc(3 * 410px + 2 * 40px) !important;
+  width: 100%;
+  max-width: 100%;
   margin: 40px auto 0 auto;
   border-radius: 12px;
   overflow: hidden;
@@ -622,7 +628,8 @@ html {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 60%; /* slightly taller than 16:9 for presence */
+  margin: 0 auto;
 }
 
 .video-wrapper iframe {

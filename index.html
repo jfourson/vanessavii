@@ -10,78 +10,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Added styles for staggered/masonry-like shows section */
-
-    .shows-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .show-item {
-      flex: 1 1 200px;
-      max-width: 220px;
-      margin-bottom: 12px;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .show-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
-    .show-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      z-index: 2;
-    }
-
-    .show-item.video-item {
-      flex: 2 1 460px;
-      max-width: 460px;
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      cursor: default;
-      margin-bottom: 12px;
-    }
-
-    .show-item.video-item iframe {
-      width: 100%;
-      height: 260px;
-      border: none;
-      border-radius: 12px;
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      .show-item {
-        flex: 1 1 150px;
-        max-width: 160px;
-      }
-      .show-item.video-item {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
-      .show-item.video-item iframe {
-        height: 200px;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -287,40 +215,42 @@
   <div class="container">
     <h2 class="shows-title">SHOWS</h2>
 
-    <div class="shows-grid-images">
-      <div class="show-item"><img src="images/show5.jpg" alt="Show Image 1"></div>
-      <div class="show-item"><img src="images/show6.jpg" alt="Show Image 2"></div>
-      <div class="show-item"><img src="images/show7.JPG" alt="Show Image 3"></div>
-    </div>
-
-    <div class="show-item video-item">
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/DJh33vBRxLk?autoplay=1&mute=1&loop=1&playlist=DJh33vBRxLk"
-          title="Show Video"
-          allow="autoplay; fullscreen"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+    <div class="shows-inner">
+      <div class="shows-grid-images">
+        <div class="show-item"><img src="images/show5.jpg" alt="Show Image 1"></div>
+        <div class="show-item"><img src="images/show6.jpg" alt="Show Image 2"></div>
+        <div class="show-item"><img src="images/show7.JPG" alt="Show Image 3"></div>
       </div>
-    </div>
 
-    <div class="shows-grid-images shorts-row">
-      <div class="show-item short-item">
-        <div class="short-wrapper">
-          <iframe src="https://www.youtube.com/embed/c-NExto-0wo?autoplay=1&mute=1&loop=1&playlist=c-NExto-0wo" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="show-item video-item">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/DJh33vBRxLk?autoplay=1&mute=1&loop=1&playlist=DJh33vBRxLk"
+            title="Show Video"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
         </div>
       </div>
 
-      <div class="show-item short-item">
-        <div class="short-wrapper">
-          <iframe src="https://www.youtube.com/embed/85waeP4iewU?autoplay=1&mute=1&loop=1&playlist=85waeP4iewU" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="shows-grid-images shorts-row">
+        <div class="show-item short-item">
+          <div class="short-wrapper">
+            <iframe src="https://www.youtube.com/embed/c-NExto-0wo?autoplay=1&mute=1&loop=1&playlist=c-NExto-0wo" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          </div>
         </div>
-      </div>
 
-      <div class="show-item short-item">
-        <div class="short-wrapper">
-          <iframe src="https://www.youtube.com/embed/3_85WQanZuA?autoplay=1&mute=1&loop=1&playlist=3_85WQanZuA" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="show-item short-item">
+          <div class="short-wrapper">
+            <iframe src="https://www.youtube.com/embed/85waeP4iewU?autoplay=1&mute=1&loop=1&playlist=85waeP4iewU" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="show-item short-item">
+          <div class="short-wrapper">
+            <iframe src="https://www.youtube.com/embed/3_85WQanZuA?autoplay=1&mute=1&loop=1&playlist=3_85WQanZuA" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </div>
