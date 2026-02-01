@@ -617,7 +617,7 @@ html {
 
 .show-item.video-item {
   width: 100%;
-  max-width: 100%;
+  max-width: 80%;
   margin: 40px auto 0 auto;
   border-radius: 12px;
   overflow: hidden;
@@ -705,7 +705,7 @@ html {
   .show-item {
     width: 100%;
     max-width: 100%;
-    border-radius: 0;
+    border-radius: 6px;
     background: transparent;
     box-shadow: none;
     align-items: stretch;
@@ -715,13 +715,20 @@ html {
     width: 100%;
     height: auto !important;
   }
+  .show-item img {
+    border-radius: 6px;
+  }
 
   .shows-grid-images .show-item img {
     object-fit: contain; /* show full image, no cropping */
   }
 
+  .video-wrapper {
+    border-radius: 6px;
+  }
+
   .video-wrapper iframe {
-    border-radius: 8px;
+    border-radius: 6px;
   }
 
   /* Shorts: 2 side-by-side, 1 centered */
@@ -743,6 +750,11 @@ html {
     width: 100%;
     max-width: 160px;      /* smaller width so height isn’t massive */
     aspect-ratio: 9 / 16;  /* keep true Shorts ratio */
+    border-radius: 6px;
+  }
+
+  .short-wrapper iframe {
+    border-radius: 6px;
   }
 
   .short-item:nth-child(3) .short-wrapper {
