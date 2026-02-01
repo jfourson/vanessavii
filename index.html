@@ -318,7 +318,13 @@
       });
     });
 
-    // 3️⃣ Digitals section — static group of 8
+    // 3️⃣ Shows section — three still images only (exclude Shorts)
+    const showsImages = Array.from(document.querySelectorAll('#shows-section .shows-grid-images:not(.shorts-row) .show-item img'));
+    showsImages.forEach((img, i) => {
+      img.onclick = () => openLightbox(showsImages, i);
+    });
+
+    // 4️⃣ Digitals section — static group of 8
     const digitalImages = Array.from(document.querySelectorAll('.digital-item img'));
     digitalImages.forEach((img, i) => {
       img.onclick = () => openLightbox(digitalImages, i);
