@@ -549,17 +549,14 @@ html {
 }
 
 .lightbox-content {
-  max-width: 90%;
-  max-height: 80%;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .lightbox-image {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90vw;   /* never wider than viewport */
+  max-height: 80vh;  /* never taller than viewport */
   width: auto;
   height: auto;
   object-fit: contain;
@@ -608,18 +605,17 @@ html {
 
 @media (max-width: 767px) {
   .lightbox-content {
-    max-width: 95%;
-    max-height: 70vh;  /* shorter to leave room for arrows & close */
+    /* no extra constraints; image itself controls size */
   }
 
   .lightbox-image {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 95vw;
+    max-height: 70vh;  /* keep room for close button and arrows */
   }
 
   .lightbox-video-wrapper {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 95vw;
+    max-height: 70vh;
   }
 
   .lightbox .prev,
