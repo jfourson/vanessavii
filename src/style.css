@@ -780,7 +780,7 @@ html {
 /* FORCE the main show video to full container width */
 .shows-section .show-item.video-item {
   width: 100% !important;
-  max-width: 90% !important;
+  max-width: 75% !important;
   margin: 40px auto 0 auto !important;
   padding: 0 !important;
   border-radius: 10px !important;
