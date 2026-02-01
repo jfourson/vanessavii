@@ -564,45 +564,62 @@ html {
 }
 
 /* Changed from grid to flexbox for staggered, masonry-like layout */
+/* Shows Grid */
 .shows-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: center; /* centers items horizontally */
+  align-items: center;     /* vertically centers the images */
+  flex-direction: column;  /* stack items vertically */
 }
 
-/* Each show item will have flexible width and variable height */
+
+/* Container for just images */
+/* Shows Grid */
+.shows-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* centers items horizontally */
+  align-items: center;     /* vertically centers the images */
+  flex-direction: column;  /* stack items vertically */
+}
+
+/* Container for just images */
+.shows-grid-images {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center; /* vertical center alignment */
+  flex-wrap: wrap;
+}
+
+/* Individual show item */
 .show-item {
-  flex: 1 1 300px; /* grow and shrink, base width 300px */
-  max-width: 400px;
+  flex: 0 1 auto; /* don't stretch */
+  max-width: 220px;
   margin-bottom: 20px;
   border-radius: 8px;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Images and iframes will have variable height for masonry effect */
-.show-item img,
-.show-item iframe {
+/* Video */
+.show-item.video-item {
   width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  /* allow height to vary */
-  height: auto;
-  max-height: 500px;
-  transition: transform 0.3s ease;
+  max-width: 460px;
+  margin-top: 20px; /* separate from images */
+  border-radius: 12px;
 }
 
-/* Increase video size to stand out */
-.video-item iframe {
-  aspect-ratio: 16 / 9; /* keeps correct video proportions */
+.show-item.video-item iframe {
   width: 100%;
-  max-height: 600px;
-  border-radius: 8px;
-  object-fit: cover;
+  height: 260px;
+  border: none;
+  border-radius: 12px;
 }
 
 /* Optional hover effect to enhance interactivity */
