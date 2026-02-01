@@ -564,9 +564,9 @@ html {
 }
 
 .lightbox-video-wrapper {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
+  max-width: 90vw;   /* similar to images */
+  max-height: 80vh;  /* similar vertical constraint */
+  width: 90vw;
   aspect-ratio: 16 / 9;
   display: none; /* hidden unless showing a video */
 }
@@ -616,6 +616,7 @@ html {
   .lightbox-video-wrapper {
     max-width: 95vw;
     max-height: 70vh;
+    width: 95vw;
   }
 
   .lightbox .prev,
