@@ -757,7 +757,7 @@ html {
 .short-wrapper {
   position: relative;
   width: 300px;
-  padding-bottom: 177%; /* 9:16 vertical short ratio */
+  padding-bottom: 178%; /* ensure true 9:16 aspect ratio */
   height: 0;
   overflow: hidden;
   border-radius: 10px;
@@ -797,4 +797,30 @@ html {
   width: 100% !important;
   height: 100% !important;
   border-radius: 10px !important;
+}
+@media (max-width: 600px) {
+  /* MOBILE SHORTS FIX — 2 per row, then 1 centered */
+  .shorts-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .short-item {
+    flex: 0 1 calc(50% - 12px); /* two per row */
+    display: flex;
+    justify-content: center;
+  }
+
+  .short-wrapper {
+    width: 100%;
+    max-width: 220px;     /* keep vertical video slim */
+    padding-bottom: 178%; /* maintain 9:16 ratio */
+  }
+
+  .shorts-row .short-item:nth-child(3) {
+    flex: 0 1 100%;        /* full width for the last short */
+    display: flex;
+    justify-content: center;
+  }
 }
