@@ -601,9 +601,6 @@ html {
 }
 
 /* Staggered heights */
-.shows-grid-images .show-item:nth-child(1) img { height: 480px; }
-.shows-grid-images .show-item:nth-child(2) img { height: 430px; }
-.shows-grid-images .show-item:nth-child(3) img { height: 390px; }
 
 .show-item:hover {
   transform: translateY(-14px) scale(1.035);
@@ -681,9 +678,6 @@ html {
   .show-item {
     max-width: 300px;
   }
-  .shows-grid-images .show-item:nth-child(1) img { height: 300px; }
-  .shows-grid-images .show-item:nth-child(2) img { height: 260px; }
-  .shows-grid-images .show-item:nth-child(3) img { height: 230px; }
 }
 
 @media (max-width: 900px) {
