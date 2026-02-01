@@ -610,8 +610,8 @@ html {
 /* ---------- MAIN VIDEO BELOW (exact width of 3 images) ---------- */
 
 .show-item.video-item {
-  width: 100%;
-  max-width: calc(3 * 410px + 2 * 40px);
+  width: calc(3 * 410px + 2 * 40px);  /* exact width of the 3 images */
+  max-width: calc(3 * 410px + 2 * 40px) !important;
   margin: 40px auto 0 auto;
   border-radius: 12px;
   overflow: hidden;
@@ -681,9 +681,6 @@ html {
 }
 
 @media (max-width: 900px) {
-  .show-item {
-    max-width: 90vw;
-  }
   .shows-grid-images img {
     height: auto !important;
   }
@@ -706,11 +703,6 @@ html {
 
   .show-item img {
     height: auto !important;
-  }
-
-  .show-item.video-item {
-    max-width: 98vw;
-    border-radius: 8px;
   }
 
   .video-wrapper iframe {
