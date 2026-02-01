@@ -548,8 +548,10 @@ html {
 }
 
 
-/* Shows Section */
-/* Shows Section */
+/* ============================
+   SHOWS SECTION — CLEAN REWRITE
+   ============================ */
+
 .shows-section {
   background-color: #000;
   color: #fff;
@@ -562,44 +564,43 @@ html {
   text-transform: uppercase;
   margin-bottom: 48px;
   text-align: center;
-  color: #fff;
   letter-spacing: 0.04em;
 }
 
-/* Shows grid: larger, center-aligned images with staggered/masonry heights */
-/* Shows grid: larger, center-aligned images with staggered/masonry heights */
+/* ---------- IMAGE GRID (3 images) ---------- */
+
 .shows-grid-images {
   display: flex;
   justify-content: center;
-  align-items: center; /* Vertically center-align the images */
-  gap: 40px; /* Slightly larger gap for bigger images */
-  margin-bottom: 0; /* Remove extra space below images */
+  align-items: center;
+  gap: 40px;
   flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
-/* Make show-item images larger, vertical alignment centered */
 .show-item {
   flex: 0 1 410px;
   max-width: 410px;
   min-width: 250px;
-  border-radius: 20px;
   overflow: hidden;
+  background: #181818;
+  border-radius: 20px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 8px 32px rgba(0,0,0,0.22);
-  transition: transform 0.22s cubic-bezier(.4,1.2,.6,1), box-shadow 0.22s;
-  background: #181818;
-  position: relative;
+  transition: transform .22s cubic-bezier(.4,1.2,.6,1);
 }
+
 .show-item img {
   width: 100%;
-  object-fit: cover;
-  display: block;
+  height: auto;
   border-radius: 20px;
-  transition: transform 0.3s;
+  object-fit: cover;
 }
-/* Slight stagger/masonry heights for effect, but all images are larger */
+
+/* Staggered heights */
 .shows-grid-images .show-item:nth-child(1) img { height: 480px; }
 .shows-grid-images .show-item:nth-child(2) img { height: 430px; }
 .shows-grid-images .show-item:nth-child(3) img { height: 390px; }
@@ -607,142 +608,54 @@ html {
 .show-item:hover {
   transform: translateY(-14px) scale(1.035);
   box-shadow: 0 14px 38px rgba(252, 144, 236, 0.28);
-  z-index: 2;
-}
-.show-item img:hover {
-  transform: scale(1.045);
 }
 
-/* Video directly below images, aligned and spanning the combined width of images */
+/* ---------- MAIN VIDEO BELOW (exact width of 3 images) ---------- */
+
+.show-item.video-item {
+  width: 100%;
+  max-width: calc(3 * 410px + 2 * 40px);
+  margin: 40px auto 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.24);
+}
+
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* more cinematic aspect */
   height: 0;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #000;
+  padding-bottom: 56.25%; /* 16:9 */
 }
-.show-item.video-item iframe {
+
+.video-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 10px;
-  display: block;
+  border-radius: 12px;
 }
 
-@media (max-width: 1200px) {
-  .shows-grid-images {
-    gap: 18px;
-    margin-bottom: 0;
-  }
-  .show-item {
-    max-width: 310px;
-    min-width: 150px;
-    border-radius: 14px;
-  }
-  .show-item img {
-    border-radius: 14px;
-  }
-  .shows-grid-images .show-item:nth-child(1) img { height: 310px; }
-  .shows-grid-images .show-item:nth-child(2) img { height: 270px; }
-  .shows-grid-images .show-item:nth-child(3) img { height: 230px; }
-  .show-item.video-item {
-    /* width: calc(3 * 310px + 2 * 18px);  deleted per instructions */
-    border-radius: 14px;
-    margin-top: 24px;
-    max-width: none;
-  }
-  .show-item.video-item .video-wrapper {
-    border-radius: 14px;
-  }
-  .show-item.video-item iframe {
-    border-radius: 14px;
-  }
-}
+/* ---------- SHORTS ROW (3 shorts: 2 side-by-side + 1 centered) ---------- */
 
-@media (max-width: 900px) {
-  .shows-grid-images {
-    gap: 8px;
-    margin-bottom: 0;
-  }
-  .show-item {
-    max-width: 98vw;
-    min-width: 0;
-    width: 98vw;
-    border-radius: 9px;
-  }
-  .show-item img {
-    border-radius: 9px;
-  }
-  .shows-grid-images .show-item:nth-child(1) img { height: 150px; }
-  .shows-grid-images .show-item:nth-child(2) img { height: 130px; }
-  .shows-grid-images .show-item:nth-child(3) img { height: 110px; }
-  .show-item.video-item {
-    /* width: 98vw;  deleted per instructions */
-    border-radius: 9px;
-    margin-top: 12px;
-    max-width: none;
-  }
-  .show-item.video-item .video-wrapper {
-    border-radius: 9px;
-  }
-  .show-item.video-item iframe {
-    border-radius: 9px;
-  }
-}
-
-@media (max-width: 600px) {
-  .shows-section {
-    padding: 28px 0 14px 0;
-  }
-  .shows-title {
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-  }
-  .shows-grid-images {
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    margin-bottom: 0;
-  }
-  .show-item,
-  .show-item img {
-    max-width: 98vw;
-    min-width: 0;
-    width: 98vw;
-    border-radius: 5px;
-  }
-  .show-item.video-item {
-    /* width: 98vw;  deleted per instructions */
-    border-radius: 5px;
-    margin-top: 8px;
-    max-width: none;
-  }
-  .show-item.video-item .video-wrapper {
-    border-radius: 5px;
-  }
-  .show-item.video-item iframe {
-    border-radius: 5px;
-  }
-}
-
-
-/* Shorts Row */
 .shorts-row {
   margin-top: 50px;
   display: flex;
   justify-content: center;
   gap: 40px;
+  flex-wrap: wrap;
+}
+
+.short-item {
+  flex: 0 1 auto;
 }
 
 .short-wrapper {
   position: relative;
   width: 300px;
-  padding-bottom: 178%; /* ensure true 9:16 aspect ratio */
+  padding-bottom: 178%; /* vertical 9:16 */
   height: 0;
   overflow: hidden;
   border-radius: 10px;
@@ -759,67 +672,77 @@ html {
   border-radius: 10px;
 }
 
+/* ---------- RESPONSIVE FIXES ---------- */
 
-/* FORCE the main show video to full container width */
-.shows-section .show-item.video-item {
-  width: 100% !important;
-  max-width: calc(3 * 410px + 2 * 40px) !important;
-  margin: 40px auto 0 auto !important;
-  padding: 0 !important;
-  border-radius: 10px !important;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.24) !important;
+@media (max-width: 1200px) {
+  .shows-grid-images {
+    gap: 20px;
+  }
+  .show-item {
+    max-width: 300px;
+  }
+  .shows-grid-images .show-item:nth-child(1) img { height: 300px; }
+  .shows-grid-images .show-item:nth-child(2) img { height: 260px; }
+  .shows-grid-images .show-item:nth-child(3) img { height: 230px; }
 }
 
-/* Make the wrapper fill the width */
-.shows-section .video-wrapper {
-  width: 100% !important;
-  padding-bottom: 56.25% !important;  /* 16:9 ratio */
-  border-radius: 10px !important;
+@media (max-width: 900px) {
+  .show-item {
+    max-width: 90vw;
+  }
+  .shows-grid-images img {
+    height: auto !important;
+  }
+  .short-wrapper {
+    width: 260px;
+  }
 }
 
-/* Make the iframe stretch perfectly */
-.shows-section .video-wrapper iframe {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 10px !important;
-}
 @media (max-width: 600px) {
-  /* MOBILE SHORTS FIX — 2 per row, then 1 centered */
+  .shows-grid-images {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .show-item {
+    width: 100%;
+    max-width: 98vw;
+    border-radius: 8px;
+  }
+
+  .show-item img {
+    height: auto !important;
+  }
+
+  .show-item.video-item {
+    max-width: 98vw;
+    border-radius: 8px;
+  }
+
+  .video-wrapper iframe {
+    border-radius: 8px;
+  }
+
+  /* Shorts: 2 side-by-side, 1 centered */
   .shorts-row {
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 12px;
   }
 
   .short-item {
-    flex: 0 1 calc(50% - 12px); /* two per row */
-    display: flex;
-    justify-content: center;
+    flex: 0 1 calc(50% - 12px);
   }
 
-  .short-wrapper {
-    width: 100%;
-    max-width: 240px;     /* correct vertical shorts width */
-    padding-bottom: 178%; /* maintain true 9:16 ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-
-  /* first two shorts stay side by side */
-  .short-item:nth-child(1) .short-wrapper,
-  .short-item:nth-child(2) .short-wrapper {
-    max-width: 240px !important;
-  }
-
-  /* last short centered below */
-  .shorts-row .short-item:nth-child(3) {
+  .short-item:nth-child(3) {
     flex: 0 1 100%;
     display: flex;
     justify-content: center;
   }
 
-  .shorts-row .short-item:nth-child(3) .short-wrapper {
-    max-width: 260px !important;
+  .short-wrapper {
+    max-width: 240px;
+  }
+
+  .short-item:nth-child(3) .short-wrapper {
+    max-width: 260px;
   }
 }
