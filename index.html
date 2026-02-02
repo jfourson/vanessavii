@@ -396,7 +396,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="category-item"><img src="images/photoshoot15.jpg" alt="Photoshoot Image 15"></div>
         
         <div class="category-item"><img src="images/image2.jpg" alt="Photoshoot Image 17"></div>
-        <div class="category-item"><img src="images/photoshoot18.jpg" alt="Photoshoot Image 18"></div>
         <div class="category-item"><img src="images/photoshoot19.jpg" alt="Photoshoot Image 19"></div>
         <div class="category-item"><img src="images/photoshoot20.JPG" alt="Photoshoot Image 20"></div>
         <div class="category-item"><img src="images/photoshoot21.jpg" alt="Photoshoot Image 21"></div>
@@ -610,6 +609,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const digitalImages = Array.from(document.querySelectorAll('.digitals-section img'));
     digitalImages.forEach((img, i) => {
       img.onclick = () => openLightbox(digitalImages, i);
+    });
+
+    // 5️⃣ Book section — all book images (grid)
+    const bookImages = Array.from(document.querySelectorAll('.book-item img'));
+    bookImages.forEach((img,i) => {
+      img.onclick = () => openLightbox(bookImages, i);
     });
   }
 
