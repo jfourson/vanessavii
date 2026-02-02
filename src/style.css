@@ -429,7 +429,7 @@ body {
 .carousel {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: visible; /* allows arrows to appear fully */
   margin: 40px 0;
 }
 
