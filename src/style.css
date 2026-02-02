@@ -1117,6 +1117,7 @@ html {
 }
 
 .book-page {
+  flex: 0 0 100%;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
