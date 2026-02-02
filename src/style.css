@@ -755,20 +755,25 @@ html {
 .short-wrapper {
   position: relative;
   width: 300px;
-  aspect-ratio: 16 / 9; /* match actual YouTube player ratio */
+  aspect-ratio: 9 / 16;   /* TRUE vertical shorts */
   overflow: hidden;
   border-radius: 8px;
-  background: transparent;
+  background: #000;        /* remove gray bleed */
 }
 
 .short-wrapper iframe {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+  height: 100%;           /* full height */
+  width: auto;            /* maintain 16:9 aspect ratio */
+  left: 50%;              /* center horizontally */
+  transform: translateX(-50%);
+
+  min-width: 100%;        /* ensures no gray bar on sides */
   border: none;
   border-radius: 8px;
+  background: #000;
 }
 
 /* ---------- RESPONSIVE FIXES ---------- */
@@ -840,7 +845,7 @@ html {
   .short-wrapper {
     width: 100%;
     max-width: 160px;
-    aspect-ratio: 16 / 9;  /* match the YouTube player ratio on mobile too */
+    aspect-ratio: 9 / 16;  /* vertical format preserved on mobile */
   }
 
   .short-item:nth-child(3) .short-wrapper {
