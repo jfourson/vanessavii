@@ -759,6 +759,20 @@ html {
   .shows-slide {
     flex: 0 0 calc((100% - 16px) / 2);
   }
+
+  /* Bring arrows inward on mobile */
+  .shows-prev {
+    left: 5px !important;
+  }
+
+  .shows-next {
+    right: 5px !important;
+  }
+
+  /* Slightly shrink carousel so arrows never fall off‑screen */
+  .shows-viewport {
+    max-width: 92% !important;
+  }
 }
 
 /* ============================
