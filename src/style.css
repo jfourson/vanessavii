@@ -436,7 +436,7 @@ body {
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
-  padding: 0 70px; /* space for arrows so they never overlap images */
+  padding: 0 40px; /* space for arrows so they never overlap images */
   box-sizing: border-box;
 }
 
@@ -446,8 +446,20 @@ body {
 }
 
 .carousel-slide {
-  flex: 0 0 calc(25% - 16px); /* 4 per page desktop */
+  /* intentionally blank: replaced by #digitals-carousel override below */
+}
+
+#digitals-carousel .carousel-slide {
+  flex: 0 0 calc(25% - 16px);
   margin-right: 16px;
+}
+
+/* Digitals mobile layout */
+@media (max-width: 767px) {
+  #digitals-carousel .carousel-slide {
+    flex: 0 0 50%;
+    margin-right: 10px;
+  }
 }
 
 .carousel-slide img {
@@ -481,17 +493,17 @@ body {
   z-index: 20;
 }
 
-.carousel-prev { left: 0; }
-.carousel-next { right: 0; }
+.carousel-prev { left: -60px; }
+.carousel-next { right: -60px; }
 
 @media (max-width: 1024px) {
-  .carousel-prev { left: 0; }
-  .carousel-next { right: 0; }
+  .carousel-prev { left: -60px; }
+  .carousel-next { right: -60px; }
 }
 
 @media (max-width: 767px) {
-  .carousel-prev { left: 0; }
-  .carousel-next { right: 0; }
+  .carousel-prev { left: -60px; }
+  .carousel-next { right: -60px; }
 }
 
 
@@ -1059,6 +1071,7 @@ html {
   transition: transform 0.5s ease;
 }
 /* Desktop: 6 per page */
+/* 
 .ad-slide img {
   width: 210px;      /* consistent width */
   height: auto;
@@ -1102,4 +1115,13 @@ html {
     max-width: 100%;
     padding: 0 30px;
   }
+}
+
+/* DIGTALS-SPECIFIC ARROW PLACEMENT */
+#digitals-carousel .carousel-prev {
+  left: -70px !important;
+}
+
+#digitals-carousel .carousel-next {
+  right: -70px !important;
 }
