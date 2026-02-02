@@ -843,22 +843,22 @@ html {
   }
 
   .short-item {
-    flex: 0 0 48%;   /* two per row */
-    max-width: 48%;
+    flex: 0 0 50%;     /* exactly half width */
+    max-width: 50%;
     display: flex;
     justify-content: center;
   }
 
   .short-item:nth-child(3) {
-    flex: 0 0 100%;  /* full width */
-    max-width: 100%;
+    flex: 0 0 50%;     /* SAME SIZE as first two */
+    max-width: 50%;
     display: flex;
     justify-content: center;
   }
 
   .short-wrapper {
     width: 100%;
-    max-width: 250px;    /* controlled size */
+    max-width: 180px;   /* uniform size for all 3 */
     aspect-ratio: 9 / 16;
     overflow: hidden;
     border-radius: 8px;
