@@ -106,26 +106,20 @@
 
     <!-- New Carousel for Digitals -->
     <div class="carousel" id="digitals-carousel">
-      <button class="carousel-prev">&#10094;</button>
-
       <div class="carousel-viewport">
         <div class="carousel-track">
-
           <div class="carousel-slide"><img src="images/VanessaVii.Digitals.2.jpg"></div>
           <div class="carousel-slide"><img src="images/VanessaVii.Digitals.3.jpg"></div>
           <div class="carousel-slide"><img src="images/VanessaVii.Digitals.4.jpg"></div>
           <div class="carousel-slide"><img src="images/VanessaVii.Digitals.5.jpg"></div>
-
           <div class="carousel-slide"><img src="images/VanessaVii.Digitals.7.jpg"></div>
           <div class="carousel-slide"><img src="images/VanessaVii.Digitals.9.jpg"></div>
           <div class="carousel-slide"><img src="images/VanessaVii.Digitals.10.jpg"></div>
           <div class="carousel-slide"><img src="images/VanessaVii.Digitals.11.jpg"></div>
-
           <div class="carousel-slide"><img src="images/VanessaVii.Digitals.12.jpg"></div>
-
         </div>
       </div>
-
+      <button class="carousel-prev">&#10094;</button>
       <button class="carousel-next">&#10095;</button>
     </div>
   </div>
@@ -231,6 +225,8 @@ function initCarousel(id) {
     const viewportWidth = viewport.offsetWidth;
     const offset = index * viewportWidth;  // jump whole pages
     track.style.transform = `translateX(-${offset}px)`;
+    // Ensure proper track length and prevents partial images
+    track.style.width = (slides.length * (viewportWidth / per) + 16 * slides.length) + 'px';
   }
 
   prev.onclick = () => {
