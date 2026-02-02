@@ -798,10 +798,12 @@ html {
 }
 
 @media (max-width: 900px) {
-  .shows-grid-images {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
+  /* SHOWS still images: 2 per row grid on mobile */
+  .shows-grid-images:not(.shorts-row) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    justify-items: center;
   }
 
   .show-item {
