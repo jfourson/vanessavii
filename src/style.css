@@ -276,27 +276,32 @@ body {
 }
 
 /* Portrait Images */
+/* Portrait Images */
 .portrait-images {
   display: flex;
   gap: 24px;
   width: 100%;
   justify-content: center;
+  align-items: center;  /* ensure both portraits align by center */
 }
 
 .portrait-image {
-  flex: 1;
-  max-width: 300px;
-  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;   /* center vertical alignment */
+  justify-content: center; /* center horizontal alignment */
+  max-width: 100%;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .portrait-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 550px;   /* prevents runaway huge images while keeping natural size */
+  object-fit: contain; /* no cropping */
+  border-radius: 8px;
 }
 
 /* .portrait-image:hover img {
@@ -344,18 +349,6 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Ensure the first portrait digital fills its container */
-.portrait-image .digital-item {
-  width: 100%;
-  height: 100%;
-}
-
-.portrait-image .digital-item img {
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: cover;
-}
 
 .digital-item img:hover {
   transform: scale(1.03);
