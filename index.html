@@ -171,27 +171,41 @@ window.addEventListener('resize', updateDigitals);
 window.addEventListener('load', updateDigitals);
 </script>
 <script>
-const showsTrack = document.querySelector('.shows-track');
-const showsSlides = Array.from(document.querySelectorAll('.shows-slide'));
-const showsPrev = document.querySelector('.shows-prev');
-const showsNext = document.querySelector('.shows-next');
-let showsPage = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  const showsTrack = document.querySelector('.shows-track');
+  const showsSlides = Array.from(document.querySelectorAll('.shows-slide'));
+  const showsPrev = document.querySelector('.shows-prev');
+  const showsNext = document.querySelector('.shows-next');
+  let showsPage = 0;
 
-function getShowsPerPage(){ return window.innerWidth <= 767 ? 2 : 3; }
+  function getShowsPerPage() {
+    return window.innerWidth <= 767 ? 2 : 3;
+  }
 
-function updateShows(){
-  const per = getShowsPerPage();
-  const viewportWidth = document.querySelector('.shows-viewport').clientWidth;
-  const max = Math.ceil(showsSlides.length / per) - 1;
-  if(showsPage<0) showsPage=0;
-  if(showsPage>max) showsPage=max;
-  showsTrack.style.transform = `translateX(${-showsPage * viewportWidth}px)`;
-}
+  function updateShows() {
+    const per = getShowsPerPage();
+    const viewportWidth = document.querySelector('.shows-viewport').clientWidth;
+    const max = Math.ceil(showsSlides.length / per) - 1;
 
-showsNext.onclick = ()=>{ showsPage++; updateShows(); };
-showsPrev.onclick = ()=>{ showsPage--; updateShows(); };
-window.addEventListener('resize', updateShows);
-window.addEventListener('load', updateShows);
+    if (showsPage < 0) showsPage = 0;
+    if (showsPage > max) showsPage = max;
+
+    showsTrack.style.transform = `translateX(${-showsPage * viewportWidth}px)`;
+  }
+
+  showsNext.onclick = () => {
+    showsPage++;
+    updateShows();
+  };
+
+  showsPrev.onclick = () => {
+    showsPage--;
+    updateShows();
+  };
+
+  window.addEventListener('resize', updateShows);
+  updateShows();
+});
 </script>
 
   <!-- Navigation/Portfolio Sections -->
