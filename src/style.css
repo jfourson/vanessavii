@@ -452,8 +452,9 @@ body {
 }
 
 #digitals-carousel .carousel-slide {
-  flex: 0 0 calc((1200px - 48px) / 4); /* FIXED WIDTH */
+  flex: 0 0 calc((1200px - 48px) / 4);
   margin-right: 16px;
+  overflow: hidden; /* ensures no cropping of edges */
 }
 
 /* Digitals mobile layout */
@@ -467,8 +468,9 @@ body {
 .carousel-slide img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: contain; /* shows entire image */
   border-radius: 8px;
+  display: block; /* removes inline cropping issues */
 }
 
 /* Mobile: 2 per page */
@@ -479,7 +481,7 @@ body {
 #digitals-carousel .carousel-prev,
 #digitals-carousel .carousel-next {
   position: absolute;
-  top: calc(50% + 120px); /* pushes arrows down */
+  top: 50%; /* center vertically relative to the bottom carousel */
   transform: translateY(-50%);
   background: #000000cc;
   color: white;
@@ -490,8 +492,8 @@ body {
   border-radius: 6px;
   z-index: 20;
 }
-#digitals-carousel .carousel-prev { left: -60px; }
-#digitals-carousel .carousel-next { right: -60px; }
+#digitals-carousel .carousel-prev { left: -50px !important; }
+#digitals-carousel .carousel-next { right: -50px !important; }
 
 
 .nav-menu {
@@ -1090,24 +1092,3 @@ html {
 .ad-next { right: 10px; }
 */
 /* REMOVE END */
-@media (max-width: 1100px) {
-  .digitals-viewport {
-    max-width: 90%;
-    padding: 0 40px;
-  }
-}
-
-@media (max-width: 900px) {
-  .digitals-viewport {
-    max-width: 100%;
-    padding: 0 30px;
-  }
-}
-
-/* DIGTALS-SPECIFIC ARROW PLACEMENT */
-#digitals-carousel .carousel-prev {
-  left: -80px !important;
-}
-#digitals-carousel .carousel-next {
-  right: -80px !important;
-}
