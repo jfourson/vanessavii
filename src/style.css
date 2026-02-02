@@ -1111,6 +1111,8 @@ html {
 
 .book-track {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;   /* <<< forces horizontal pages */
   transition: transform 0.6s ease;
 }
 
