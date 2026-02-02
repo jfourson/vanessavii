@@ -224,29 +224,33 @@ document.addEventListener('DOMContentLoaded', () => {
   <section id="book-section" class="category-section category-section--dark">
     <div class="container">
       <h2 class="category-title" data-i18n="book">BOOK</h2>
-      <div class="category-gallery" data-gallery-group="book">
-        
-        <div class="category-item"><img src="images/photoshoot39.heic" alt="Photoshoot Image 38"></div>
-        <div class="category-item"><img src="images/photoshoot38.heic" alt="Photoshoot Image 39"></div>
-        <div class="category-item"><img src="images/photoshoot26.heic" alt="Photoshoot Image 26"></div>
-        <div class="category-item"><img src="images/photoshoot27.heic" alt="Photoshoot Image 27"></div>
-        <div class="category-item"><img src="images/photoshoot35.JPG" alt="Photoshoot Image 35"></div>
-        <div class="category-item"><img src="images/photoshoot36.JPG" alt="Photoshoot Image 36"></div>
-        <div class="category-item"><img src="images/book1.jpg" alt="Book Portfolio Image 1"></div>
-        
-        <div class="category-item"><img src="images/photoshoot40.heic" alt="Photoshoot Image 40"></div>
-        <div class="category-item"><img src="images/photoshoot42.HEIC" alt="Photoshoot Image 42"></div>
-        <div class="category-item"><img src="images/photoshoot44.JPG" alt="Photoshoot Image 44"></div>
-        <div class="category-item"><img src="images/photoshoot45.JPG" alt="Photoshoot Image 45"></div>
-        <div class="category-item"><img src="images/photoshoot46.JPG" alt="Photoshoot Image 46"></div>
-        <div class="category-item"><img src="images/photoshoot47.JPG" alt="Photoshoot Image 47"></div>
-        <div class="category-item"><img src="images/photoshoot48.JPG" alt="Photoshoot Image 48"></div>
-        <div class="category-item"><img src="images/photoshoot18.jpg" alt="Photoshoot Image 18"></div>
-        <div class="category-item"><img src="images/photoshoot22.jpg" alt="Photoshoot Image 22"></div>
-        <div class="category-item"><img src="images/photoshoot23.jpg" alt="Photoshoot Image 23"></div>
-        <div class="category-item"><img src="images/photoshoot24.jpg" alt="Photoshoot Image 24"></div>
-        <div class="category-item"><img src="images/photoshoot68.JPG" alt="Photoshoot Image 68"></div>
-        <div class="category-item"><img src="images/photoshoot50.JPG" alt="Photoshoot Image 50"></div>
+      <div class="book-carousel">
+        <button class="book-prev">&#10094;</button>
+        <div class="book-viewport">
+          <div class="book-track">
+            <div class="book-slide"><img src="images/photoshoot39.heic"></div>
+            <div class="book-slide"><img src="images/photoshoot38.heic"></div>
+            <div class="book-slide"><img src="images/photoshoot26.heic"></div>
+            <div class="book-slide"><img src="images/photoshoot27.heic"></div>
+            <div class="book-slide"><img src="images/photoshoot45.JPG"></div>
+            <div class="book-slide"><img src="images/photoshoot44.JPG"></div>
+            <div class="book-slide"><img src="images/photoshoot35.JPG"></div>
+            <div class="book-slide"><img src="images/photoshoot36.JPG"></div>
+            <div class="book-slide"><img src="images/book1.jpg"></div>
+            <div class="book-slide"><img src="images/photoshoot40.heic"></div>
+            <div class="book-slide"><img src="images/photoshoot42.HEIC"></div>
+            <div class="book-slide"><img src="images/photoshoot46.JPG"></div>
+            <div class="book-slide"><img src="images/photoshoot47.JPG"></div>
+            <div class="book-slide"><img src="images/photoshoot48.JPG"></div>
+            <div class="book-slide"><img src="images/photoshoot18.jpg"></div>
+            <div class="book-slide"><img src="images/photoshoot22.jpg"></div>
+            <div class="book-slide"><img src="images/photoshoot23.jpg"></div>
+            <div class="book-slide"><img src="images/photoshoot24.jpg"></div>
+            <div class="book-slide"><img src="images/photoshoot68.JPG"></div>
+            <div class="book-slide"><img src="images/photoshoot50.JPG"></div>
+          </div>
+        </div>
+        <button class="book-next">&#10095;</button>
       </div>
     </div>
   </section>
@@ -685,4 +689,33 @@ window.addEventListener('load', () => {
 </script>
   <a href="#top" class="back-to-top" aria-label="Back to top">&#8593;</a>
 </body>
+<script>
+const bookTrack = document.querySelector('.book-track');
+const bookSlides = Array.from(document.querySelectorAll('.book-slide'));
+let bookPage = 0;
+
+function getBookSlidesPerPage() {
+  return 8; // 4x2 layout
+}
+
+function updateBook() {
+  const slidesPerPage = getBookSlidesPerPage();
+  const pageWidth = 1200;
+  const offset = bookPage * pageWidth;
+  bookTrack.style.transform = `translateX(-${offset}px)`;
+}
+
+document.querySelector('.book-next').onclick = () => {
+  const totalPages = Math.ceil(bookSlides.length / 8) - 1;
+  if (bookPage < totalPages) bookPage++;
+  updateBook();
+};
+
+document.querySelector('.book-prev').onclick = () => {
+  if (bookPage > 0) bookPage--;
+  updateBook();
+};
+
+updateBook();
+</script>
 </html>
