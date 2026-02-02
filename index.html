@@ -228,27 +228,28 @@ document.addEventListener('DOMContentLoaded', () => {
         <button class="book-prev">&#10094;</button>
         <div class="book-viewport">
           <div class="book-track">
-            <div class="book-slide"><img src="images/photoshoot39.heic"></div>
-            <div class="book-slide"><img src="images/photoshoot38.heic"></div>
-            <div class="book-slide"><img src="images/photoshoot26.heic"></div>
-            <div class="book-slide"><img src="images/photoshoot27.heic"></div>
-            <div class="book-slide"><img src="images/photoshoot45.JPG"></div>
-            <div class="book-slide"><img src="images/photoshoot44.JPG"></div>
-            <div class="book-slide"><img src="images/photoshoot35.JPG"></div>
-            <div class="book-slide"><img src="images/photoshoot36.JPG"></div>
-            <div class="book-slide"><img src="images/book1.jpg"></div>
-            <div class="book-slide"><img src="images/photoshoot40.heic"></div>
-            <div class="book-slide"><img src="images/photoshoot42.HEIC"></div>
-            <div class="book-slide"><img src="images/photoshoot46.JPG"></div>
-            <div class="book-slide"><img src="images/photoshoot47.JPG"></div>
-            <div class="book-slide"><img src="images/photoshoot48.JPG"></div>
-            <div class="book-slide"><img src="images/photoshoot18.jpg"></div>
-            <div class="book-slide"><img src="images/photoshoot22.jpg"></div>
-            <div class="book-slide"><img src="images/photoshoot23.jpg"></div>
-            <div class="book-slide"><img src="images/photoshoot24.jpg"></div>
-            <div class="book-slide"><img src="images/photoshoot68.JPG"></div>
-            <div class="book-slide"><img src="images/photoshoot50.JPG"></div>
-          </div>
+              <div class="book-page">
+                <div class="book-slide"><img src="images/photoshoot39.heic"></div>
+                <div class="book-slide"><img src="images/photoshoot38.heic"></div>
+                <div class="book-slide"><img src="images/photoshoot26.heic"></div>
+                <div class="book-slide"><img src="images/photoshoot27.heic"></div>
+                <div class="book-slide"><img src="images/photoshoot40.heic"></div>
+                <div class="book-slide"><img src="images/photoshoot42.HEIC"></div>
+                <div class="book-slide"><img src="images/photoshoot45.JPG"></div>
+                <div class="book-slide"><img src="images/photoshoot44.JPG"></div>
+              </div>
+
+              <div class="book-page">
+                <div class="book-slide"><img src="images/book1.jpg"></div>
+                <div class="book-slide"><img src="images/photoshoot35.JPG"></div>
+                <div class="book-slide"><img src="images/photoshoot36.JPG"></div>
+                <div class="book-slide"><img src="images/photoshoot46.JPG"></div>
+                <div class="book-slide"><img src="images/photoshoot47.JPG"></div>
+                <div class="book-slide"><img src="images/photoshoot48.JPG"></div>
+                <div class="book-slide"><img src="images/photoshoot18.jpg"></div>
+                <div class="book-slide"><img src="images/photoshoot22.jpg"></div>
+              </div>
+                        </div>
         </div>
         <button class="book-next">&#10095;</button>
       </div>
@@ -691,30 +692,21 @@ window.addEventListener('load', () => {
 </body>
 <script>
 const bookTrack = document.querySelector('.book-track');
-const bookSlides = Array.from(document.querySelectorAll('.book-slide'));
 let bookPage = 0;
-
-function getBookSlidesPerPage() {
-  return 8;
-}
-
 function updateBook() {
   const viewportWidth = document.querySelector('.book-viewport').clientWidth;
   const offset = bookPage * viewportWidth;
   bookTrack.style.transform = `translateX(-${offset}px)`;
 }
-
+const bookPages = document.querySelectorAll('.book-page');
 document.querySelector('.book-next').onclick = () => {
-  const totalPages = Math.ceil(bookSlides.length / 8) - 1;
-  if (bookPage < totalPages) bookPage++;
+  if (bookPage < bookPages.length - 1) bookPage++;
   updateBook();
 };
-
 document.querySelector('.book-prev').onclick = () => {
   if (bookPage > 0) bookPage--;
   updateBook();
 };
-
 updateBook();
 </script>
 </html>
