@@ -810,17 +810,17 @@ html {
     width: 100%;
     max-width: 360px;
     background: #000;
-    padding: 6px;              /* adds spacing inside the rounded border */
-    border-radius: 8px;        /* round the OUTER container */
+    padding: 0;              /* remove padding to stop uneven corner rendering */
+    border-radius: 10px;     /* consistent rounding */
     box-shadow: none;
-    overflow: hidden;          /* ensures the image follows rounding */
+    overflow: hidden;        /* ensures inner image inherits rounding */
   }
 
   .shows-grid-images .show-item img {
     width: 100%;
     height: auto !important;
-    object-fit: contain; /* show full image, no cropping */
-    border-radius: 6px;  /* match inner radius to padding */
+    object-fit: contain;
+    border-radius: 0;       /* image should not have its own radius */
   }
 
   .video-wrapper {
