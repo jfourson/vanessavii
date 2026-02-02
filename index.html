@@ -53,7 +53,7 @@
             </div>
             <div class="stat-item">
               <p class="stat-label" data-i18n="bwh">BWH</p>
-              <p class="stat-value">31.5 - 23.5 - 35 in<br>80 - 60 - 89 cm</p>
+              <p class="stat-value">31.5 - 23 - 35 in<br>80 - 59 - 89 cm</p>
             </div>
             <div class="stat-item">
               <p class="stat-label" data-i18n="shoe">Shoe</p>
@@ -96,13 +96,18 @@
 <section class="digitals-section">
   <div class="container">
     <h2 class="stats-title" data-i18n="digitals">DIGITALS</h2>
-    <!-- Unified Digitals Carousel -->
+
+    <!-- TOP 3 DIGTALS -->
+    <div class="digitals-top-row">
+      <div class="digital-item"><img src="images/VanessaVii.Digitals.1.jpg"></div>
+      <div class="digital-item"><img src="images/VanessaVii.Digitals.2.jpg"></div>
+      <div class="digital-item"><img src="images/VanessaVii.Digitals.3.jpg"></div>
+    </div>
+
+    <!-- CAROUSEL OF REMAINING 9 -->
     <div class="digitals-carousel">
       <button class="digitals-prev">&#10094;</button>
       <div class="digitals-track">
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.1.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.2.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.3.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.4.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.5.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.6.jpg"></div>
@@ -115,29 +120,42 @@
       </div>
       <button class="digitals-next">&#10095;</button>
     </div>
-</body>
+  </div>
+</section>
+
 <script>
 const digitalsTrack = document.querySelector('.digitals-track');
-const digitalSlides = document.querySelectorAll('.digital-slide');
+const digitalSlides = Array.from(document.querySelectorAll('.digital-slide'));
 let digitalIndex = 0;
 
+/* Desktop = 5 per page, Mobile = 2 per page */
+function getDigitalStep() {
+  return window.innerWidth <= 767 ? 2 : 5;
+}
+
+function getDigitalSlideWidth() {
+  const slide = document.querySelector('.digital-slide img');
+  return slide.offsetWidth + 16; /* gap included */
+}
+
 function updateDigitals() {
-  const slideWidth = document.querySelector('.digital-slide img').offsetWidth + 16;
+  const slideWidth = getDigitalSlideWidth();
+  digitalIndex = Math.max(0, Math.min(digitalIndex, digitalSlides.length - getDigitalStep()));
   digitalsTrack.style.transform = `translateX(${-digitalIndex * slideWidth}px)`;
 }
 
 document.querySelector('.digitals-next').onclick = () => {
-  digitalIndex = Math.min(digitalIndex + 1, digitalSlides.length - 4);
+  digitalIndex += getDigitalStep();
   updateDigitals();
 };
 
 document.querySelector('.digitals-prev').onclick = () => {
-  digitalIndex = Math.max(digitalIndex - 1, 0);
+  digitalIndex -= getDigitalStep();
   updateDigitals();
 };
+
+window.addEventListener('resize', updateDigitals);
 </script>
-  </div>
-</section>
 
   <!-- Navigation/Portfolio Sections -->
   <section class="portfolio-nav">
@@ -489,8 +507,8 @@ document.querySelector('.digitals-prev').onclick = () => {
       img.onclick = () => openLightbox(showsGroup, i);
     });
 
-    // 4️⃣ Digitals section — all digitals in carousel
-    const digitalImages = Array.from(document.querySelectorAll('.digitals-carousel img'));
+    // 4️⃣ Digitals section — all digitals (top row + carousel)
+    const digitalImages = Array.from(document.querySelectorAll('.digitals-section img'));
     digitalImages.forEach((img, i) => {
       img.onclick = () => openLightbox(digitalImages, i);
     });
