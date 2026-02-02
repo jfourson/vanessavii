@@ -834,22 +834,22 @@ html {
   .video-wrapper {
   }
 
-  /* Shorts: 2 side-by-side, 1 centered (grid layout) */
+  /* Shorts: 2 side-by-side, 1 centered (flex layout) */
   .shows-section .shorts-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 12px;
-    justify-items: center;
   }
 
   .short-item {
+    width: calc(50% - 12px);
     display: flex;
     justify-content: center;
-    width: 100%;          /* ensures grid cells fill properly */
   }
 
   .short-item:nth-child(3) {
-    grid-column: 1 / -1; /* span both columns, centered */
+    width: 100%;
     display: flex;
     justify-content: center;
   }
