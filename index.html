@@ -254,19 +254,25 @@ window.addEventListener('load', updateDigitals);
       <h2 class="shows-title">SHOWS</h2>
 
       <div class="shows-inner">
-        <div class="shows-grid-images">
-          <div class="show-item"><img src="images/show7.JPG" alt="Show Image 3"></div>
-          <div class="show-item"><img src="images/show5.jpg" alt="Show Image 1"></div>
-          <div class="show-item"><img src="images/show6.jpg" alt="Show Image 2"></div>
-          <div class="show-item"><img src="images/show8.HEIC" alt="Show Image 4"></div>
-          <div class="show-item"><img src="images/show9.HEIC" alt="Show Image 5"></div>
-          <div class="show-item"><img src="images/show10.jpg" alt="Show Image 6"></div>
-          <div class="show-item"><img src="images/show11.jpg" alt="Show Image 7"></div>
-          <div class="show-item"><img src="images/show12.jpg" alt="Show Image 8"></div>
-          <div class="show-item"><img src="images/show13.jpg" alt="Show Image 9"></div>
-          <div class="show-item"><img src="images/show14.jpg" alt="Show Image 10"></div>
-          
-          
+        <div class="shows-carousel">
+          <button class="shows-prev">&#10094;</button>
+
+          <div class="shows-viewport">
+            <div class="shows-track">
+              <div class="shows-slide"><img src="images/show7.JPG"></div>
+              <div class="shows-slide"><img src="images/show5.jpg"></div>
+              <div class="shows-slide"><img src="images/show6.jpg"></div>
+              <div class="shows-slide"><img src="images/show8.HEIC"></div>
+              <div class="shows-slide"><img src="images/show9.HEIC"></div>
+              <div class="shows-slide"><img src="images/show10.jpg"></div>
+              <div class="shows-slide"><img src="images/show11.jpg"></div>
+              <div class="shows-slide"><img src="images/show12.jpg"></div>
+              <div class="shows-slide"><img src="images/show13.jpg"></div>
+              <div class="shows-slide"><img src="images/show14.jpg"></div>
+            </div>
+          </div>
+
+          <button class="shows-next">&#10095;</button>
         </div>
 
         <div class="show-item video-item">
@@ -510,7 +516,45 @@ window.addEventListener('load', updateDigitals);
     });
 
     // 3️⃣ Shows section — still images + main video + Shorts as slides
-    const showStills = Array.from(document.querySelectorAll('#shows-section .shows-grid-images:not(.shorts-row) .show-item img'));
+    const showStills = Array.from(document.querySelectorAll('.shows-carousel img'));
+<script>
+const showsViewport = document.querySelector('.shows-viewport');
+const showsTrack = document.querySelector('.shows-track');
+const showsSlides = Array.from(document.querySelectorAll('.shows-slide'));
+
+let showsPage = 0;
+
+function showsPerPage() {
+  return window.innerWidth <= 767 ? 2 : 3;
+}
+
+function showsMaxPage() {
+  const per = showsPerPage();
+  return Math.ceil(showsSlides.length / per) - 1;
+}
+
+function updateShows() {
+  const viewportWidth = showsViewport.clientWidth;
+  const maxPage = showsMaxPage();
+  if (showsPage < 0) showsPage = 0;
+  if (showsPage > maxPage) showsPage = maxPage;
+  const offset = showsPage * viewportWidth;
+  showsTrack.style.transform = `translateX(-${offset}px)`;
+}
+
+document.querySelector('.shows-next').onclick = () => {
+  showsPage++;
+  updateShows();
+};
+
+document.querySelector('.shows-prev').onclick = () => {
+  showsPage--;
+  updateShows();
+};
+
+window.addEventListener('resize', updateShows);
+window.addEventListener('load', updateShows);
+</script>
 
     // Build a mixed list (images + synthetic video entries)
     const showsGroup = [...showStills];
@@ -617,14 +661,6 @@ window.addEventListener('load', () => {
     updateAd();
   };
 
-  /* Slower auto-scroll */
-  setInterval(() => {
-    adIndex += getStep();
-    updateAd();
-    if (adIndex >= TOTAL_SLIDES - getStep()) {
-      setTimeout(() => jumpWithoutAnimation(adIndex % adSlides.length), 650);
-    }
-  }, 7000);
 
   /* Recalculate sizes on resize */
   window.addEventListener('resize', () => {
