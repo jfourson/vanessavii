@@ -96,18 +96,13 @@
 <section class="digitals-section">
   <div class="container">
     <h2 class="stats-title" data-i18n="digitals">DIGITALS</h2>
-    <!-- Top 3 Digitals -->
-    <div class="digitals-top-row">
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.1.jpg" alt="Digital 1"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.2.jpg" alt="Digital 2"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.3.jpg" alt="Digital 3"></div>
-    </div>
-
-    <!-- Carousel of remaining digitals -->
+    <!-- Unified Digitals Carousel -->
     <div class="digitals-carousel">
       <button class="digitals-prev">&#10094;</button>
-
       <div class="digitals-track">
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.1.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.2.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.3.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.4.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.5.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.6.jpg"></div>
@@ -118,7 +113,6 @@
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.11.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.12.jpg"></div>
       </div>
-
       <button class="digitals-next">&#10095;</button>
     </div>
 </body>
@@ -133,12 +127,12 @@ function updateDigitals() {
 }
 
 document.querySelector('.digitals-next').onclick = () => {
-  if (digitalIndex < digitalSlides.length - 4) digitalIndex++;
+  digitalIndex = Math.min(digitalIndex + 1, digitalSlides.length - 4);
   updateDigitals();
 };
 
 document.querySelector('.digitals-prev').onclick = () => {
-  if (digitalIndex > 0) digitalIndex--;
+  digitalIndex = Math.max(digitalIndex - 1, 0);
   updateDigitals();
 };
 </script>
@@ -495,8 +489,8 @@ document.querySelector('.digitals-prev').onclick = () => {
       img.onclick = () => openLightbox(showsGroup, i);
     });
 
-    // 4️⃣ Digitals section — static group of 8
-    const digitalImages = Array.from(document.querySelectorAll('.digital-item img'));
+    // 4️⃣ Digitals section — all digitals in carousel
+    const digitalImages = Array.from(document.querySelectorAll('.digitals-carousel img'));
     digitalImages.forEach((img, i) => {
       img.onclick = () => openLightbox(digitalImages, i);
     });
