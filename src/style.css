@@ -241,7 +241,7 @@ body {
 }
 
 .stats-title {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
   font-weight: 700;
   color: #1f2937;
   margin-bottom: 40px;
@@ -270,7 +270,7 @@ body {
 }
 
 .stat-value {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   color: #1f2937;
 }
@@ -769,6 +769,7 @@ html {
   height: 100%;
   border: none;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 /* ---------- RESPONSIVE FIXES ---------- */
