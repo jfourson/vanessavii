@@ -339,8 +339,8 @@ body {
 .digital-item img {
   width: 100%;
   max-width: 300px;
-  aspect-ratio: 3/4;
-  object-fit: cover;
+  height: auto;              /* keep natural image height */
+  object-fit: contain;       /* ensure full image is visible, no cropping */
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
