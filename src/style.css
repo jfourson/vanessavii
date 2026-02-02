@@ -358,17 +358,18 @@ body {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding: 20px 0;
+  padding: 20px 80px; /* extra space for arrows outside images */
 }
 
 .digitals-track {
   display: flex;
   gap: 16px;
   transition: transform 0.5s ease;
+  margin: 0 auto;
 }
 
 .digital-slide img {
-  width: 240px;
+  width: 220px;  /* ensures 5 fit perfectly without partials */
   height: auto;
   object-fit: contain;
   border-radius: 8px;
@@ -396,8 +397,8 @@ body {
   transform: translateY(-50%);
 }
 
-.digitals-prev { left: -10px; }
-.digitals-next { right: -10px; }
+.digitals-prev { left: 10px; }   /* fully outside image area */
+.digitals-next { right: 10px; }  /* fully outside image area */
 
 
 .nav-menu {

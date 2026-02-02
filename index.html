@@ -100,19 +100,19 @@
     <!-- TOP 3 DIGTALS -->
     <div class="digitals-top-row">
       <div class="digital-item"><img src="images/VanessaVii.Digitals.1.jpg"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.2.jpg"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.3.jpg"></div>
+      <div class="digital-item"><img src="images/VanessaVii.Digitals.6.jpg"></div>
+      <div class="digital-item"><img src="images/VanessaVii.Digitals.8.jpg"></div>
     </div>
 
     <!-- CAROUSEL OF REMAINING 9 -->
     <div class="digitals-carousel">
       <button class="digitals-prev">&#10094;</button>
       <div class="digitals-track">
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.2.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.3.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.4.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.5.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.6.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.7.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.8.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.9.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.10.jpg"></div>
         <div class="digital-slide"><img src="images/VanessaVii.Digitals.11.jpg"></div>
@@ -135,7 +135,7 @@ function getDigitalStep() {
 
 function getDigitalSlideWidth() {
   const slide = document.querySelector('.digital-slide img');
-  return slide.offsetWidth + 16; /* gap included */
+  return slide.offsetWidth + 20; /* matches new gap and prevents partial images */
 }
 
 function updateDigitals() {
