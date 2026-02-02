@@ -148,29 +148,32 @@
   <section id="advertising-section" class="category-section category-section--light">
     <div class="container">
       <h2 class="category-title" data-i18n="advertising">ADVERTISING</h2>
-      <div class="category-gallery" data-gallery-group="advertising">
-        <!-- <div class="category-item"><img src="images/promo1.jpg" alt="Advertising Image 1"></div> -->
-        <div class="category-item"><img src="images/promo2.jpg" alt="Advertising Image 2"></div>
-        <div class="category-item"><img src="images/promo3.jpg" alt="Advertising Image 3"></div>
-        <div class="category-item"><img src="images/promo4.jpg" alt="Advertising Image 4"></div>
-        <div class="category-item"><img src="images/promo5.jpg" alt="Advertising Image 5"></div>
-        <div class="category-item"><img src="images/promo6.jpg" alt="Advertising Image 6"></div>
-        <div class="category-item"><img src="images/promo7.jpg" alt="Advertising Image 7"></div>
-        <div class="category-item"><img src="images/promo8.jpg" alt="Advertising Image 8"></div>
-        <div class="category-item"><img src="images/promo9.jpg" alt="Advertising Image 9"></div>
-        <div class="category-item"><img src="images/promo10.jpg" alt="Advertising Image 10"></div>
-        <div class="category-item"><img src="images/promo11.jpg" alt="Advertising Image 11"></div>
-        <div class="category-item"><img src="images/promo12.jpg" alt="Advertising Image 12"></div>
-        <div class="category-item"><img src="images/promo13.jpg" alt="Advertising Image 13"></div>
-        <div class="category-item"><img src="images/promo14.jpg" alt="Advertising Image 14"></div>
-        <div class="category-item"><img src="images/promo15.jpg" alt="Advertising Image 15"></div>
-        <div class="category-item"><img src="images/promo16.webp" alt="Advertising Image 16"></div>
-        <div class="category-item"><img src="images/promo17.jpeg" alt="Advertising Image 17"></div>
-        <div class="category-item"><img src="images/promo18.jpg" alt="Advertising Image 18"></div>
-        <div class="category-item"><img src="images/promo19.webp" alt="Advertising Image 19"></div>
-        <div class="category-item"><img src="images/promo20.jpg" alt="Advertising Image 20"></div>
-        <div class="category-item"><img src="images/promo21.jpg" alt="Advertising Image 21"></div>
-        <div class="category-item"><img src="images/promo22.JPG" alt="Advertising Image 22"></div>
+      <div class="advertising-carousel">
+        <button class="ad-prev">&#10094;</button>
+        <div class="ad-track">
+          <div class="ad-slide"><img src="images/promo2.jpg" alt="Advertising Image 2"></div>
+          <div class="ad-slide"><img src="images/promo3.jpg" alt="Advertising Image 3"></div>
+          <div class="ad-slide"><img src="images/promo4.jpg" alt="Advertising Image 4"></div>
+          <div class="ad-slide"><img src="images/promo5.jpg" alt="Advertising Image 5"></div>
+          <div class="ad-slide"><img src="images/promo6.jpg" alt="Advertising Image 6"></div>
+          <div class="ad-slide"><img src="images/promo7.jpg" alt="Advertising Image 7"></div>
+          <div class="ad-slide"><img src="images/promo8.jpg" alt="Advertising Image 8"></div>
+          <div class="ad-slide"><img src="images/promo9.jpg" alt="Advertising Image 9"></div>
+          <div class="ad-slide"><img src="images/promo10.jpg" alt="Advertising Image 10"></div>
+          <div class="ad-slide"><img src="images/promo11.jpg" alt="Advertising Image 11"></div>
+          <div class="ad-slide"><img src="images/promo12.jpg" alt="Advertising Image 12"></div>
+          <div class="ad-slide"><img src="images/promo13.jpg" alt="Advertising Image 13"></div>
+          <div class="ad-slide"><img src="images/promo14.jpg" alt="Advertising Image 14"></div>
+          <div class="ad-slide"><img src="images/promo15.jpg" alt="Advertising Image 15"></div>
+          <div class="ad-slide"><img src="images/promo16.webp" alt="Advertising Image 16"></div>
+          <div class="ad-slide"><img src="images/promo17.jpeg" alt="Advertising Image 17"></div>
+          <div class="ad-slide"><img src="images/promo18.jpg" alt="Advertising Image 18"></div>
+          <div class="ad-slide"><img src="images/promo19.webp" alt="Advertising Image 19"></div>
+          <div class="ad-slide"><img src="images/promo20.jpg" alt="Advertising Image 20"></div>
+          <div class="ad-slide"><img src="images/promo21.jpg" alt="Advertising Image 21"></div>
+          <div class="ad-slide"><img src="images/promo22.JPG" alt="Advertising Image 22"></div>
+        </div>
+        <button class="ad-next">&#10095;</button>
       </div>
     </div>
   </section>
@@ -477,6 +480,16 @@ window.addEventListener('load', () => {
 });
 </script>
 
+</body>
+<script>
+const adTrack=document.querySelector('.ad-track');
+const adSlides=document.querySelectorAll('.ad-slide');
+let adIndex=0;
+function updateAd(){ adTrack.style.transform=`translateX(${-adIndex*220}px)` }
+document.querySelector('.ad-next').onclick=()=>{ if(adIndex<adSlides.length-6) adIndex++; updateAd(); };
+document.querySelector('.ad-prev').onclick=()=>{ if(adIndex>0) adIndex--; updateAd(); };
+setInterval(()=>{ if(adIndex<adSlides.length-6) adIndex++; else adIndex=0; updateAd(); },4000);
+</script>
   <a href="#top" class="back-to-top" aria-label="Back to top">&#8593;</a>
 </body>
 </html>

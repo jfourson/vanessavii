@@ -901,3 +901,36 @@ html {
     font-size: 18px;
   }
 }
+
+/* Advertising Carousel */
+.advertising-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 40px 0;
+}
+.ad-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.5s ease;
+}
+.ad-slide img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+.ad-prev, .ad-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 32px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 10;
+}
+.ad-prev { left: 10px; }
+.ad-next { right: 10px; }
