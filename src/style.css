@@ -71,7 +71,7 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
-  overflow-x: hidden; /* prevents container-based overflow */
+  overflow-x: visible;
 }
 
 /* Hero Section */
@@ -198,6 +198,7 @@ body {
   align-items: center;
   justify-content: center;  /* centers the contact text block */
   position: relative;       /* so we can absolutely position the icons */
+  overflow: visible !important;
 }
 
 .icon-footers {
@@ -206,6 +207,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  overflow: visible !important;
 }
 
 @media (max-width: 767px) {
@@ -471,14 +473,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Prevent horizontal scrolling globally */
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden !important;
-  position: relative;
-}
-
 /* Loading and transition animations */
 .hero-content {
   animation: fadeInUp 1s ease-out;
@@ -670,7 +664,7 @@ html, body {
 }
 
 .shows-inner {
-  max-width: 100%; /* prevents it from exceeding phone width */
+  max-width: calc(3 * 410px + 2 * 40px); /* match 3 images + 2 gaps */
   margin: 0 auto;
 }
 
@@ -684,7 +678,6 @@ html, body {
   flex-wrap: wrap;
   margin-bottom: 40px;
   width: 100%;
-  overflow-x: hidden; /* prevents horizontal bleed */
 }
 
 .show-item {
@@ -738,7 +731,6 @@ html, body {
   height: 0;
   padding-bottom: 60%; /* slightly taller than 16:9 for presence */
   margin: 0 auto;
-  overflow: hidden; 
 }
 
 .video-wrapper iframe {
