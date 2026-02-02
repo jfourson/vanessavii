@@ -843,20 +843,22 @@ html {
   }
 
   .short-item {
-    width: calc(50% - 12px);
+    flex: 0 0 50%;      /* guarantees two per row */
+    max-width: 50%;     /* prevents collapse */
     display: flex;
     justify-content: center;
   }
 
   .short-item:nth-child(3) {
-    width: 100%;
+    flex: 0 0 100%;       /* full width single bottom short */
+    max-width: 100%;
     display: flex;
     justify-content: center;
   }
 
   .short-wrapper {
     width: 100%;
-    max-width: 200px;     /* restores size so Shorts show on mobile */
+    max-width: 100%;     /* allow full width of cell */
     aspect-ratio: 9 / 16;
   }
 
