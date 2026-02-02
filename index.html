@@ -82,7 +82,7 @@
         <!-- Portrait Images -->
         <div class="portrait-images">
           <div class="portrait-image">
-            <div class="digital-item"><img src="images/VanessaVii.Digitals.11.jpg" alt="Digital 11"></div>
+            <div class="digital-item"><img src="images/VanessaVii.Digitals.3.jpg" alt="Digital 3"></div>
           </div>
           <div class="portrait-image">
             <img src="images/VanessaHeadshot.heic" alt="Vanessa Headshot" />
@@ -99,7 +99,7 @@
     <div class="digitals-grid">
       <div class="digital-item"><img src="images/VanessaVii.Digitals.1.jpg" alt="Digital 1"></div>
       <div class="digital-item"><img src="images/VanessaVii.Digitals.2.jpg" alt="Digital 2"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.3.jpg" alt="Digital 3"></div>
+      
       <div class="digital-item"><img src="images/VanessaVii.Digitals.4.jpg" alt="Digital 4"></div>
       <div class="digital-item"><img src="images/VanessaVii.Digitals.5.jpg" alt="Digital 5"></div>
       <div class="digital-item"><img src="images/VanessaVii.Digitals.6.jpg" alt="Digital 6"></div>
@@ -107,7 +107,7 @@
       <div class="digital-item"><img src="images/VanessaVii.Digitals.8.jpg" alt="Digital 8"></div>
       <div class="digital-item"><img src="images/VanessaVii.Digitals.9.jpg" alt="Digital 9"></div>
       <div class="digital-item"><img src="images/VanessaVii.Digitals.10.jpg" alt="Digital 10"></div>
-      
+      <div class="digital-item"><img src="images/VanessaVii.Digitals.11.jpg" alt="Digital 11"></div>
       <div class="digital-item"><img src="images/VanessaVii.Digitals.12.jpg" alt="Digital 12"></div>
     </div>
   </div>
@@ -491,29 +491,54 @@ window.addEventListener('load', () => {
 </body>
 <script>
   const adTrack = document.querySelector('.ad-track');
-  const adSlides = document.querySelectorAll('.ad-slide');
-  const AD_STEP = 6;              // move 6 at a time
-  const AD_SLIDE_WIDTH = 220;     // must match slide width + gap in CSS
+  const adSlides = Array.from(document.querySelectorAll('.ad-slide'));
+  const AD_STEP = 6;               // move 6 at a time
+  const AD_SLIDE_WIDTH = 220;      // slide width + gap
   let adIndex = 0;
 
+  /* 1️⃣ CLONE SLIDES TO CREATE A TRUE INFINITE LOOP */
+  const clones = adSlides.map(slide => slide.cloneNode(true));
+  clones.forEach(clone => adTrack.appendChild(clone));
+
+  /* Total slides doubles, so no visual jump occurs */
+  const TOTAL_SLIDES = adSlides.length * 2;
+
   function updateAd() {
+    adTrack.style.transition = 'transform 0.6s ease';
+    adTrack.style.transform = `translateX(${-adIndex * AD_SLIDE_WIDTH}px)`;
+  }
+
+  function jumpWithoutAnimation(index) {
+    adTrack.style.transition = 'none';
+    adIndex = index;
     adTrack.style.transform = `translateX(${-adIndex * AD_SLIDE_WIDTH}px)`;
   }
 
   document.querySelector('.ad-next').onclick = () => {
-    adIndex = (adIndex + AD_STEP) % adSlides.length;   // loop forward by 6
+    adIndex += AD_STEP;
     updateAd();
+
+    /* When passing the halfway point, instantly snap back */
+    if (adIndex >= TOTAL_SLIDES - AD_STEP) {
+      setTimeout(() => jumpWithoutAnimation(adIndex % adSlides.length), 650);
+    }
   };
 
   document.querySelector('.ad-prev').onclick = () => {
-    adIndex = (adIndex - AD_STEP + adSlides.length) % adSlides.length; // loop backward by 6
+    adIndex -= AD_STEP;
+    if (adIndex < 0) adIndex += adSlides.length;  
     updateAd();
   };
 
+  /* 2️⃣ SLOWER AUTOSCROLL (every ~7 seconds instead of 4) */
   setInterval(() => {
-    adIndex = (adIndex + AD_STEP) % adSlides.length;   // auto-advance by 6, infinite loop
+    adIndex += AD_STEP;
     updateAd();
-  }, 4000);
+
+    if (adIndex >= TOTAL_SLIDES - AD_STEP) {
+      setTimeout(() => jumpWithoutAnimation(adIndex % adSlides.length), 650);
+    }
+  }, 7000);   // <-- slowed down from 4000 to 7000ms
 </script>
   <a href="#top" class="back-to-top" aria-label="Back to top">&#8593;</a>
 </body>
