@@ -838,27 +838,27 @@ html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
+    gap: 6px;   /* tighter spacing */
     width: 100%;
   }
 
   .short-item {
-    flex: 0 0 50%;     /* exactly half width */
-    max-width: 50%;
+    flex: 0 0 calc(50% - 6px);   /* allows two to fit cleanly */
+    max-width: calc(50% - 6px);
     display: flex;
     justify-content: center;
   }
 
   .short-item:nth-child(3) {
-    flex: 0 0 50%;     /* SAME SIZE as first two */
-    max-width: 50%;
+    flex: 0 0 calc(50% - 6px);
+    max-width: calc(50% - 6px);
     display: flex;
     justify-content: center;
   }
 
   .short-wrapper {
     width: 100%;
-    max-width: 180px;   /* uniform size for all 3 */
+    max-width: 150px;   /* ensures two fit side-by-side */
     aspect-ratio: 9 / 16;
     overflow: hidden;
     border-radius: 8px;
