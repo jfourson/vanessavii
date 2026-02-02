@@ -969,11 +969,12 @@ html {
 }
 
 /* Advertising Carousel */
+/* Advertising Carousel - MATCH DIGITALS */
 .advertising-carousel {
   position: relative;
-  overflow: hidden;
   width: 100%;
   padding: 40px 0;
+  overflow: visible;
 }
   .ad-track {
     display: flex;
@@ -982,8 +983,9 @@ html {
   }
 
 /* EXACT 4‑ACROSS AD LAYOUT */
+/* EXACT 4‑ACROSS AD LAYOUT */
 .ad-slide {
-  flex: 0 0 calc((100% - 48px) / 4); /* 4 per row, 16px gaps */
+  flex: 0 0 calc((100% - 48px) / 4); /* EXACT 4 per page */
   margin-right: 16px;
   padding: 0;
   box-sizing: border-box;
@@ -1008,9 +1010,10 @@ html {
 
 .advertising-carousel .ad-viewport {
   overflow: hidden;
-  max-width: 1400px;
+  max-width: 1400px;   /* match digitals */
+  width: 100%;
   margin: 0 auto;
-  padding: 0 80px; /* gutter for arrows */
+  padding: 0 80px;     /* arrow gutters */
   box-sizing: border-box;
 }
 
