@@ -436,7 +436,9 @@ body {
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
-  padding: 0 40px; /* space for arrows so they never overlap images */
+  max-width: 1400px;     /* match container width */
+  margin: 0 auto;        /* center viewport */
+  padding: 0 80px;       /* dedicated space for arrows */
   box-sizing: border-box;
 }
 
@@ -450,14 +452,14 @@ body {
 }
 
 #digitals-carousel .carousel-slide {
-  flex: 0 0 calc(25% - 16px);
+  flex: 0 0 calc((100% - 48px) / 4);  /* exactly 4 across, 16px gaps */
   margin-right: 16px;
 }
 
 /* Digitals mobile layout */
 @media (max-width: 767px) {
   #digitals-carousel .carousel-slide {
-    flex: 0 0 50%;
+    flex: 0 0 calc((100% - 10px) / 2);  /* exactly 2 across */
     margin-right: 10px;
   }
 }
@@ -470,12 +472,7 @@ body {
 }
 
 /* Mobile: 2 per page */
-@media (max-width: 767px) {
-  .carousel-slide {
-    flex: 0 0 calc(50% - 10px);
-    margin-right: 10px;
-  }
-}
+
 
 /* Arrows OUTSIDE the viewport */
 .carousel-prev,
@@ -1119,9 +1116,8 @@ html {
 
 /* DIGTALS-SPECIFIC ARROW PLACEMENT */
 #digitals-carousel .carousel-prev {
-  left: -70px !important;
+  left: -80px !important;
 }
-
 #digitals-carousel .carousel-next {
-  right: -70px !important;
+  right: -80px !important;
 }

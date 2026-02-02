@@ -228,8 +228,8 @@ function initCarousel(id) {
 
   function update() {
     const per = slidesPerPage();
-    const slideWidth = slides[0].offsetWidth + 16; 
-    const offset = index * (slideWidth * per);
+    const viewportWidth = viewport.offsetWidth;
+    const offset = index * viewportWidth;  // jump whole pages
     track.style.transform = `translateX(-${offset}px)`;
   }
 
