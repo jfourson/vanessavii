@@ -167,9 +167,31 @@ prevBtn.onclick = () => {
 };
 
 window.addEventListener('resize', updateDigitals);
-
 // initialize position
 window.addEventListener('load', updateDigitals);
+</script>
+<script>
+const showsTrack = document.querySelector('.shows-track');
+const showsSlides = Array.from(document.querySelectorAll('.shows-slide'));
+const showsPrev = document.querySelector('.shows-prev');
+const showsNext = document.querySelector('.shows-next');
+let showsPage = 0;
+
+function getShowsPerPage(){ return window.innerWidth <= 767 ? 2 : 3; }
+
+function updateShows(){
+  const per = getShowsPerPage();
+  const viewportWidth = document.querySelector('.shows-viewport').clientWidth;
+  const max = Math.ceil(showsSlides.length / per) - 1;
+  if(showsPage<0) showsPage=0;
+  if(showsPage>max) showsPage=max;
+  showsTrack.style.transform = `translateX(${-showsPage * viewportWidth}px)`;
+}
+
+showsNext.onclick = ()=>{ showsPage++; updateShows(); };
+showsPrev.onclick = ()=>{ showsPage--; updateShows(); };
+window.addEventListener('resize', updateShows);
+window.addEventListener('load', updateShows);
 </script>
 
   <!-- Navigation/Portfolio Sections -->
@@ -381,13 +403,13 @@ window.addEventListener('load', updateDigitals);
   <div class="container contact-footer">
     <div class="icon-footers">
       <a href="https://www.instagram.com/verivanessa/" target="_blank">
-        <img src="../images/Socials/instagram-footer.png" width="20" height="20">
+        <img src="../images/Socials/instagram-footer-white.png" width="20" height="20">
       </a>
       <a href="https://www.tiktok.com/@verivanessa" target="_blank">
-        <img src="../images/Socials/tiktok-footer.png" width="20" height="20">
+        <img src="../images/Socials/tiktok-footer-white.png" width="20" height="20">
       </a>
       <a href="https://www.youtube.com/@VeriVanessa" target="_blank">
-        <img src="../images/Socials/youtube-footer.png" width="22" height="22">
+        <img src="../images/Socials/youtube-footer-white.png" width="22" height="22">
       </a>
     </div>
 
