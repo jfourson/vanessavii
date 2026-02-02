@@ -681,7 +681,7 @@ html {
 
 .show-item {
   width: 100%;
-  background: #181818;
+  background: #000000;   /* ensure no gray shows behind images */
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 6px 24px rgba(0,0,0,0.18);
@@ -690,7 +690,7 @@ html {
 
 .show-item.short-item {
   width: auto;              /* prevent forced horizontal stretch */
-  background: #000;         /* match short-wrapper background */
+  background: #000000;
   border-radius: 8px;
   overflow: hidden;         /* ensure no bleed bars */
   box-shadow: none;         /* keep clean like original */
@@ -817,7 +817,7 @@ html {
   .show-item {
     width: 100%;
     max-width: 360px;
-    background: #000;
+    background: #000000;
     padding: 0;              /* remove padding to stop uneven corner rendering */
     border-radius: 10px;     /* consistent rounding */
     box-shadow: none;
