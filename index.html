@@ -96,23 +96,52 @@
 <section class="digitals-section">
   <div class="container">
     <h2 class="stats-title" data-i18n="digitals">DIGITALS</h2>
-    <div class="digitals-grid">
+    <!-- Top 3 Digitals -->
+    <div class="digitals-top-row">
       <div class="digital-item"><img src="images/VanessaVii.Digitals.1.jpg" alt="Digital 1"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.6.jpg" alt="Digital 6"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.9.jpg" alt="Digital 9"></div>
-      
       <div class="digital-item"><img src="images/VanessaVii.Digitals.2.jpg" alt="Digital 2"></div>
       <div class="digital-item"><img src="images/VanessaVii.Digitals.3.jpg" alt="Digital 3"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.4.jpg" alt="Digital 4"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.5.jpg" alt="Digital 5"></div>
-      
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.7.jpg" alt="Digital 7"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.8.jpg" alt="Digital 8"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.9.jpg" alt="Digital 9"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.10.jpg" alt="Digital 10"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.11.jpg" alt="Digital 11"></div>
-      <div class="digital-item"><img src="images/VanessaVii.Digitals.12.jpg" alt="Digital 12"></div>
     </div>
+
+    <!-- Carousel of remaining digitals -->
+    <div class="digitals-carousel">
+      <button class="digitals-prev">&#10094;</button>
+
+      <div class="digitals-track">
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.4.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.5.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.6.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.7.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.8.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.9.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.10.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.11.jpg"></div>
+        <div class="digital-slide"><img src="images/VanessaVii.Digitals.12.jpg"></div>
+      </div>
+
+      <button class="digitals-next">&#10095;</button>
+    </div>
+</body>
+<script>
+const digitalsTrack = document.querySelector('.digitals-track');
+const digitalSlides = document.querySelectorAll('.digital-slide');
+let digitalIndex = 0;
+
+function updateDigitals() {
+  const slideWidth = document.querySelector('.digital-slide img').offsetWidth + 16;
+  digitalsTrack.style.transform = `translateX(${-digitalIndex * slideWidth}px)`;
+}
+
+document.querySelector('.digitals-next').onclick = () => {
+  if (digitalIndex < digitalSlides.length - 4) digitalIndex++;
+  updateDigitals();
+};
+
+document.querySelector('.digitals-prev').onclick = () => {
+  if (digitalIndex > 0) digitalIndex--;
+  updateDigitals();
+};
+</script>
   </div>
 </section>
 
