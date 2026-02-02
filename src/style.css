@@ -664,7 +664,7 @@ html {
 }
 
 .shows-inner {
-  max-width: calc(3 * 410px + 2 * 40px); /* match 3 images + 2 gaps */
+  max-width: 100%; /* match 3 images + 2 gaps */
   margin: 0 auto;
 }
 
@@ -678,6 +678,7 @@ html {
   flex-wrap: wrap;
   margin-bottom: 40px;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .show-item {
