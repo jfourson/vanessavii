@@ -688,6 +688,17 @@ html {
   display: block;
 }
 
+.show-item.short-item {
+  width: auto;              /* prevent forced horizontal stretch */
+  background: #000;         /* match short-wrapper background */
+  border-radius: 8px;
+  overflow: hidden;         /* ensure no bleed bars */
+  box-shadow: none;         /* keep clean like original */
+  display: flex;            /* shrink-wrap to short-wrapper */
+  justify-content: center;
+  align-items: center;
+}
+
 .show-item img {
   width: 100%;
   height: auto;
@@ -832,8 +843,10 @@ html {
   }
 
   .short-item {
-    flex: none; /* grid controls layout now */
-    width: 100%;
+    flex: none;
+    width: auto;             /* let wrapper define exact width */
+    display: flex;
+    justify-content: center;
   }
 
   .short-item:nth-child(3) {
