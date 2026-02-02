@@ -1112,14 +1112,13 @@ html {
 .book-track {
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;         /* exact page width */
+  width: 100%;
   transition: transform 0.6s ease;
 }
 
 .book-slide {
-  width: 25%;          /* 4 per row */
+  flex: 0 0 calc(100% / 4);   /* always 4 per row */
   padding: 8px;
-  height: auto;        /* allow full natural height */
   box-sizing: border-box;
 }
 
@@ -1127,7 +1126,19 @@ html {
   width: 100%;
   object-fit: contain;
   height: auto;
+  max-height: 260px;      /* helps maintain rows on smaller screens */
   border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .book-slide img {
+    max-height: 200px;
+  }
+}
+@media (max-width: 600px) {
+  .book-slide img {
+    max-height: 150px;
+  }
 }
 
 .book-prev, .book-next {

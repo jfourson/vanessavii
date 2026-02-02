@@ -695,13 +695,12 @@ const bookSlides = Array.from(document.querySelectorAll('.book-slide'));
 let bookPage = 0;
 
 function getBookSlidesPerPage() {
-  return 8; // 4x2 layout
+  return 8;
 }
 
 function updateBook() {
-  const slidesPerPage = getBookSlidesPerPage();
-  const pageWidth = 1200;
-  const offset = bookPage * pageWidth;
+  const viewportWidth = document.querySelector('.book-viewport').clientWidth;
+  const offset = bookPage * viewportWidth;
   bookTrack.style.transform = `translateX(-${offset}px)`;
 }
 
