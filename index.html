@@ -150,7 +150,7 @@ function updateDigitals() {
   if (digitalPage > maxPage) digitalPage = maxPage;
 
   const offset = digitalPage * viewportWidth;
-  digitalsTrack.style.transform = `translateX(${-offset}px)`;
+  digitalsTrack.style.transform = `translateX(calc(${-offset}px + (50% - ${digitalsViewport.clientWidth}px / 2)))`;
 }
 
 const nextBtn = document.querySelector('.digitals-next');
@@ -230,6 +230,10 @@ window.addEventListener('load', updateDigitals);
           <div class="ad-slide"><img src="images/promo20.jpg" alt="Advertising Image 20"></div>
           <div class="ad-slide"><img src="images/promo21.jpg" alt="Advertising Image 21"></div>
           <div class="ad-slide"><img src="images/promo22.JPG" alt="Advertising Image 22"></div>
+          <div class="ad-slide"><img src="images/photoshoot3.jpg" alt="Advertising Image 23"></div>
+          <div class="ad-slide"><img src="images/portrait1.jpg" alt="Advertising Image 24"></div>
+          <div class="ad-slide"><img src="images/photoshoot53.JPG" alt="Advertising Image 25"></div>
+          <div class="ad-slide"><img src="images/photoshoot59.jpg" alt="Advertising Image 26"></div>
         </div>
         <button class="ad-next">&#10095;</button>
       </div>
@@ -297,7 +301,6 @@ window.addEventListener('load', updateDigitals);
     <div class="container">
       <h2 class="category-title" data-i18n="photoshoots">PHOTOSHOOTS</h2>
       <div class="category-gallery" data-gallery-group="photoshoots">
-        <div class="category-item"><img src="images/photoshoot3.jpg" alt="Photoshoot Image 3"></div>
         <div class="category-item"><img src="images/photoshoot6.jpg" alt="Photoshoot Image 6"></div>
         <div class="category-item"><img src="images/photoshoot7.jpg" alt="Photoshoot Image 7"></div>
         <div class="category-item"><img src="images/photoshoot8.jpg" alt="Photoshoot Image 8"></div>
@@ -308,7 +311,7 @@ window.addEventListener('load', updateDigitals);
         <div class="category-item"><img src="images/photoshoot13.jpg" alt="Photoshoot Image 13"></div>
         <div class="category-item"><img src="images/photoshoot14.jpg" alt="Photoshoot Image 14"></div>
         <div class="category-item"><img src="images/photoshoot15.jpg" alt="Photoshoot Image 15"></div>
-        <div class="category-item"><img src="images/portrait1.jpg" alt="Photoshoot Image 16"></div>
+        
         <div class="category-item"><img src="images/image2.jpg" alt="Photoshoot Image 17"></div>
         <div class="category-item"><img src="images/photoshoot18.jpg" alt="Photoshoot Image 18"></div>
         <div class="category-item"><img src="images/photoshoot19.jpg" alt="Photoshoot Image 19"></div>
@@ -337,13 +340,13 @@ window.addEventListener('load', updateDigitals);
         <div class="category-item"><img src="images/photoshoot50.JPG" alt="Photoshoot Image 50"></div>
         <div class="category-item"><img src="images/photoshoot51.heic" alt="Photoshoot Image 51"></div>
         <div class="category-item"><img src="images/photoshoot52.JPG" alt="Photoshoot Image 52"></div>
-        <div class="category-item"><img src="images/photoshoot53.JPG" alt="Photoshoot Image 53"></div>
+        
         
         <div class="category-item"><img src="images/photoshoot55.JPG" alt="Photoshoot Image 55"></div>
         <div class="category-item"><img src="images/photoshoot56.jpg" alt="Photoshoot Image 56"></div>
         <div class="category-item"><img src="images/photoshoot57.JPG" alt="Photoshoot Image 57"></div>
         <div class="category-item"><img src="images/photoshoot58.heic" alt="Photoshoot Image 58"></div>
-        <div class="category-item"><img src="images/photoshoot59.jpg" alt="Photoshoot Image 59"></div>
+        
         <div class="category-item"><img src="images/photoshoot60.jpg" alt="Photoshoot Image 60"></div>
         <div class="category-item"><img src="images/photoshoot61.jpg" alt="Photoshoot Image 61"></div>
         <div class="category-item"><img src="images/photoshoot62.jpg" alt="Photoshoot Image 62"></div>
