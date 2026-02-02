@@ -331,18 +331,30 @@ body {
 
 .digitals-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* larger cells = bigger images, ~3–4 across */
+  gap: 12px; /* tighter spacing */
   justify-items: center;
 }
 
 .digital-item img {
   width: 100%;
-  max-width: 300px;
   height: auto;              /* keep natural image height */
   object-fit: contain;       /* ensure full image is visible, no cropping */
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Ensure the first portrait digital fills its container */
+.portrait-image .digital-item {
+  width: 100%;
+  height: 100%;
+}
+
+.portrait-image .digital-item img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
 }
 
 .digital-item img:hover {
@@ -423,8 +435,7 @@ body {
   }
 
   .digitals-grid {
-    flex-direction: row;
-    align-items: flex-start;
+    /* grid layout already defined above; no extra flex overrides */
   }
 
   .stats-text {
@@ -441,8 +452,7 @@ body {
   }
 
   .digital-item {
-    width: 66.667%;
-    justify-content: flex-start;
+    width: 100%;
   }
 }
 
@@ -672,8 +682,8 @@ html {
 
 .shows-grid-images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* always 3 across on desktop */
+  gap: 18px;
   max-width: 1200px;
   margin: 0 auto 40px auto;
   width: 100%;
