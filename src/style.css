@@ -354,8 +354,6 @@ body {
   border-radius: 8px;
 }
 
-/* REMOVE START */
-/*
 .digitals-carousel {
   position: relative;
   width: 100%;
@@ -367,7 +365,6 @@ body {
   width: 100%;
   max-width: 1100px;   /* reasonable width for 5-across */
   margin: 0 auto;       /* center the images area */
-  padding: 0 60px; /* reserve space for arrows */
 }
 
 .digitals-track {
@@ -416,84 +413,8 @@ body {
   transform: translateY(-50%);
 }
 
-.digitals-prev { left: 0; }
-.digitals-next { right: 0; }
-*/
-/* REMOVE END */
-
-
-/* ============================
-   UNIVERSAL 4-AT-A-TIME CAROUSEL
-   ============================ */
-
-.carousel {
-  position: relative;
-  width: 100%;
-  overflow: visible; /* allows arrows to appear fully */
-  margin: 40px 0;
-}
-
-#digitals-carousel .carousel-viewport {
-  overflow: hidden;
-  width: 100%;
-  max-width: 1200px;   /* exactly 4 slides fit, no 5th peek */
-  margin: 0 auto;
-  padding: 0 60px;     /* narrower = prevents 5th image showing */
-  box-sizing: border-box;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.carousel-slide {
-  /* intentionally blank: replaced by #digitals-carousel override below */
-}
-
-#digitals-carousel .carousel-slide {
-  flex: 0 0 calc((1200px - 48px) / 4);
-  margin-right: 16px;
-  overflow: hidden; /* ensures no cropping of edges */
-}
-
-/* Digitals mobile layout */
-@media (max-width: 767px) {
-  #digitals-carousel .carousel-slide {
-    flex: 0 0 calc((100% - 10px) / 2);  /* exactly 2 across */
-    margin-right: 10px;
-  }
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* shows entire image */
-  border-radius: 8px;
-  display: block; /* removes inline cropping issues */
-}
-
-/* Mobile: 2 per page */
-
-
-/* Arrows OUTSIDE the viewport */
-/* center arrows relative to the BOTTOM carousel, not the whole digitals section */
-#digitals-carousel .carousel-prev,
-#digitals-carousel .carousel-next {
-  position: absolute;
-  top: 50%; /* center vertically relative to the bottom carousel */
-  transform: translateY(-50%);
-  background: #000000cc;
-  color: white;
-  border: none;
-  font-size: 28px;
-  padding: 10px 16px;
-  cursor: pointer;
-  border-radius: 6px;
-  z-index: 20;
-}
-#digitals-carousel .carousel-prev { left: -50px !important; }
-#digitals-carousel .carousel-next { right: -50px !important; }
+.digitals-prev { left: 20px; }
+.digitals-next { right: 20px; }
 
 
 .nav-menu {
@@ -1046,8 +967,6 @@ html {
 }
 
 /* Advertising Carousel */
-/* REMOVE START */
-/*
 .advertising-carousel {
   position: relative;
   overflow: hidden;
@@ -1060,7 +979,6 @@ html {
   transition: transform 0.5s ease;
 }
 /* Desktop: 6 per page */
-/* 
 .ad-slide img {
   width: 210px;      /* consistent width */
   height: auto;
@@ -1090,5 +1008,3 @@ html {
 }
 .ad-prev { left: 10px; }
 .ad-next { right: 10px; }
-*/
-/* REMOVE END */
