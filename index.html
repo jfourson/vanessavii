@@ -107,17 +107,21 @@
     <!-- CAROUSEL OF REMAINING 9 -->
     <div class="digitals-carousel">
       <button class="digitals-prev">&#10094;</button>
-      <div class="digitals-track">
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.2.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.3.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.4.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.5.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.7.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.9.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.10.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.11.jpg"></div>
-        <div class="digital-slide"><img src="images/VanessaVii.Digitals.12.jpg"></div>
+
+      <div class="digitals-viewport">
+        <div class="digitals-track">
+          <div class="digital-slide"><img src="images/VanessaVii.Digitals.2.jpg"></div>
+          <div class="digital-slide"><img src="images/VanessaVii.Digitals.3.jpg"></div>
+          <div class="digital-slide"><img src="images/VanessaVii.Digitals.4.jpg"></div>
+          <div class="digital-slide"><img src="images/VanessaVii.Digitals.5.jpg"></div>
+          <div class="digital-slide"><img src="images/VanessaVii.Digitals.7.jpg"></div>
+          <div class="digital-slide"><img src="images/VanessaVii.Digitals.9.jpg"></div>
+          <div class="digital-slide"><img src="images/VanessaVii.Digitals.10.jpg"></div>
+          <div class="digital-slide"><img src="images/VanessaVii.Digitals.11.jpg"></div>
+          <div class="digital-slide"><img src="images/VanessaVii.Digitals.12.jpg"></div>
+        </div>
       </div>
+
       <button class="digitals-next">&#10095;</button>
     </div>
   </div>
@@ -125,36 +129,47 @@
 
 <script>
 const digitalsTrack = document.querySelector('.digitals-track');
+const digitalsViewport = document.querySelector('.digitals-viewport');
 const digitalSlides = Array.from(document.querySelectorAll('.digital-slide'));
-let digitalIndex = 0;
+let digitalPage = 0; // 0 = first page, 1 = second page on desktop
 
-/* Desktop = 5 per page, Mobile = 2 per page */
-function getDigitalStep() {
-  return window.innerWidth <= 767 ? 2 : 5;
+function getSlidesPerPage() {
+  return window.innerWidth <= 767 ? 2 : 5; // mobile vs desktop
 }
 
-function getDigitalSlideWidth() {
-  const slide = document.querySelector('.digital-slide img');
-  return slide.offsetWidth + 20; /* matches new gap and prevents partial images */
+function getMaxPage() {
+  const perPage = getSlidesPerPage();
+  return Math.max(0, Math.ceil(digitalSlides.length / perPage) - 1); // desktop: 2 pages (5 + 4)
 }
 
 function updateDigitals() {
-  const slideWidth = getDigitalSlideWidth();
-  digitalIndex = Math.max(0, Math.min(digitalIndex, digitalSlides.length - getDigitalStep()));
-  digitalsTrack.style.transform = `translateX(${-digitalIndex * slideWidth}px)`;
+  const viewportWidth = digitalsViewport.clientWidth;
+  const maxPage = getMaxPage();
+
+  if (digitalPage < 0) digitalPage = 0;
+  if (digitalPage > maxPage) digitalPage = maxPage;
+
+  const offset = digitalPage * viewportWidth;
+  digitalsTrack.style.transform = `translateX(${-offset}px)`;
 }
 
-document.querySelector('.digitals-next').onclick = () => {
-  digitalIndex += getDigitalStep();
+const nextBtn = document.querySelector('.digitals-next');
+const prevBtn = document.querySelector('.digitals-prev');
+
+nextBtn.onclick = () => {
+  digitalPage += 1;
   updateDigitals();
 };
 
-document.querySelector('.digitals-prev').onclick = () => {
-  digitalIndex -= getDigitalStep();
+prevBtn.onclick = () => {
+  digitalPage -= 1;
   updateDigitals();
 };
 
 window.addEventListener('resize', updateDigitals);
+
+// initialize position
+window.addEventListener('load', updateDigitals);
 </script>
 
   <!-- Navigation/Portfolio Sections -->

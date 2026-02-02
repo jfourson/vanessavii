@@ -356,29 +356,45 @@ body {
 
 .digitals-carousel {
   position: relative;
+  width: 100%;
+  padding: 20px 0; /* viewport will handle centering, arrows sit at edges */
+}
+
+.digitals-viewport {
   overflow: hidden;
   width: 100%;
-  padding: 20px 80px; /* extra space for arrows outside images */
+  max-width: 1100px;   /* reasonable width for 5-across */
+  margin: 0 auto;       /* center the images area */
 }
 
 .digitals-track {
   display: flex;
-  gap: 16px;
+  flex-wrap: nowrap;
   transition: transform 0.5s ease;
-  margin: 0 auto;
+}
+
+.digital-slide {
+  flex: 0 0 20%;            /* 5 slides per full-width page on desktop */
+  padding: 0 8px;           /* visual gap between images */
+  box-sizing: border-box;
 }
 
 .digital-slide img {
-  width: 220px;  /* ensures 5 fit perfectly without partials */
+  width: 100%;
   height: auto;
   object-fit: contain;
   border-radius: 8px;
 }
 
 @media (max-width: 767px) {
+  .digital-slide {
+    flex: 0 0 50%;   /* 2 per page on mobile */
+    padding: 0 6px;
+  }
+
   .digital-slide img {
-    width: 48vw;
-    max-width: 180px;
+    width: 100%;
+    max-width: none;
   }
 }
 
@@ -397,8 +413,8 @@ body {
   transform: translateY(-50%);
 }
 
-.digitals-prev { left: 10px; }   /* fully outside image area */
-.digitals-next { right: 10px; }  /* fully outside image area */
+.digitals-prev { left: 20px; }
+.digitals-next { right: 20px; }
 
 
 .nav-menu {
