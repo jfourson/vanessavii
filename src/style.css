@@ -77,7 +77,7 @@ body {
 /* Hero Section */
 .hero {
   position: relative;
-  height: 300px;            /* reduced height for banner look */
+  height: 100vh;            /* full viewport height for banner look */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -241,7 +241,8 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;     /* ensures content is centered */
+  align-items: flex-start;
+  text-align: left;
 }
 
 .stats-title {
@@ -1088,4 +1089,7 @@ html {
   align-items: center !important; 
   justify-content: center;
   width: 100%;
+}
+.about-hero {
+  height: 300px !important;
 }
