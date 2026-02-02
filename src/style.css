@@ -1083,3 +1083,9 @@ html {
 }
 .ad-prev { left: 10px; }
 .ad-next { right: 10px; }
+.about-stats {
+  margin: 0 auto;          /* centers full block */
+  align-items: center !important; 
+  justify-content: center;
+  width: 100%;
+}
