@@ -924,10 +924,20 @@ html {
   gap: 16px;
   transition: transform 0.5s ease;
 }
+/* Desktop: 6 per page */
 .ad-slide img {
-  width: 200px;
+  width: 210px;      /* consistent width */
   height: auto;
+  object-fit: contain;
   border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+  /* Mobile: 2 per page */
+  .ad-slide img {
+    width: 46vw;         /* two fit perfectly across */
+    max-width: 180px;
+  }
 }
 .ad-prev, .ad-next {
   position: absolute;
