@@ -387,18 +387,19 @@ body {
 /* Contact Section */
 .contact-section {
   padding: 48px 0;
-  background-color: #ff9dea;
-  color: white;
+  background-color: #000000;
+  color: #ff9dea; /* pink text */
 }
 
 .contact-text {
   text-align: center;
   font-size: 18px;
   letter-spacing: 0.05em;
+  color: #ff9dea; /* match footer pink */
 }
 
 .contact-link {
-  color: white;
+  color: #ff9dea;
   text-decoration: underline;
   transition: text-decoration 0.3s ease;
 }
@@ -640,11 +641,15 @@ html {
    SHOWS SECTION — CLEAN REWRITE
    ============================ */
 
-.shows-section {
-  background-color: #000;
-  color: #fff;
-  padding: 80px 0 60px 0;
-}
+ .shows-section {
+   background-color: #000;
+   color: #fff;
+   padding: 80px 0 60px 0;
+ }
+ .shows-section--light {
+   background-color: #ffffff;
+   color: #000000;
+ }
 
 .shows-title {
   font-size: clamp(2.2rem, 5.5vw, 3.2rem);
