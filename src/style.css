@@ -671,29 +671,21 @@ html {
 /* ---------- IMAGE GRID (3 images) ---------- */
 
 .shows-grid-images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
   width: 100%;
-  overflow-x: hidden;
 }
 
 .show-item {
-  flex: 0 1 410px;
-  max-width: 410px;
-  min-width: 250px;
-  overflow: hidden;
+  width: 100%;
   background: #181818;
   border-radius: 8px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
-  transition: transform .22s cubic-bezier(.4,1.2,.6,1);
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  display: block;
 }
 
 .show-item img {
@@ -798,11 +790,9 @@ html {
 }
 
 @media (max-width: 900px) {
-  /* SHOWS still images: 2 per row grid on mobile */
   .shows-grid-images:not(.shorts-row) {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;    /* adds breathing room so images aren't touching */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     justify-items: center;
   }
 
