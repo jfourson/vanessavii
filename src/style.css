@@ -741,9 +741,10 @@ html {
 .shorts-row {
   margin-top: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;  /* align left on desktop */
   gap: 40px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .short-item {
