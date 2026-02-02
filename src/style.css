@@ -741,11 +741,11 @@ html {
 .shorts-row {
   margin-top: 50px;
   display: flex;
-  justify-content: center;   /* centered on desktop */
+  justify-content: center;      /* center group */
+  align-items: center;          /* vertically align */
   gap: 40px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;            /* force 3-in-a-row */
   width: 100%;
-  align-items: flex-start;
 }
 
 .short-item {
