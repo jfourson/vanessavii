@@ -834,23 +834,23 @@ html {
   .video-wrapper {
   }
 
-  /* Shorts: 2 side-by-side, 1 centered (flex layout) */
   .shows-section .shorts-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 16px;
+    width: 100%;
   }
 
   .short-item {
-    flex: 0 0 50%;      /* guarantees two per row */
-    max-width: 50%;     /* prevents collapse */
+    flex: 0 0 48%;   /* two per row */
+    max-width: 48%;
     display: flex;
     justify-content: center;
   }
 
   .short-item:nth-child(3) {
-    flex: 0 0 100%;       /* full width single bottom short */
+    flex: 0 0 100%;  /* full width */
     max-width: 100%;
     display: flex;
     justify-content: center;
@@ -858,12 +858,11 @@ html {
 
   .short-wrapper {
     width: 100%;
-    max-width: 100%;     /* allow full width of cell */
+    max-width: 250px;    /* controlled size */
     aspect-ratio: 9 / 16;
-  }
-
-  .short-item:nth-child(3) .short-wrapper {
-    max-width: 200px;     /* consistent sizing */
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
   }
 }
 
