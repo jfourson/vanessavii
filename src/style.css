@@ -361,10 +361,11 @@ body {
 }
 
 .digitals-viewport {
+  max-width: 1400px;
+  padding: 0 80px;  /* same as ads */
   overflow: hidden;
   width: 100%;
-  max-width: 1100px;   /* reasonable width for 5-across */
-  margin: 0 auto;       /* center the images area */
+  margin: 0 auto;
 }
 
 .digitals-track {
@@ -374,8 +375,9 @@ body {
 }
 
 .digital-slide {
-  flex: 0 0 20%;            /* 5 slides per full-width page on desktop */
-  padding: 0 8px;           /* visual gap between images */
+  flex: 0 0 calc((100% - 48px) / 4); /* EXACT 4 per page with 16px gaps */
+  margin-right: 16px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -983,6 +985,7 @@ html {
 .ad-slide {
   flex: 0 0 calc((100% - 48px) / 4); /* 4 per row, 16px gaps */
   margin-right: 16px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -1031,5 +1034,5 @@ html {
   cursor: pointer;
   z-index: 10;
 }
-.ad-prev { left: -60px; }
-.ad-next { right: -60px; }
+.ad-prev { left: -50px; }
+.ad-next { right: -50px; }
