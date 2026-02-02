@@ -225,7 +225,7 @@ body {
 
 /* Stats Section */
 .stats-section {
-  padding: 80px 0;
+  padding: 60px 0 40px 0; /* reduced bottom spacing */
   background-color: #fafafa;
 }
 
@@ -304,9 +304,6 @@ body {
   border-radius: 8px;
 }
 
-/* .portrait-image:hover img {
-  transform: scale(1.05);
-} */
 
 /* Portfolio Navigation */
 .portfolio-nav {
@@ -316,7 +313,7 @@ body {
 
 /* Digitals Section */
 .digitals-section {
-  padding: 0 0 80px;
+  padding: 20px 0 80px; /* slight top padding for breathing room */
   background-color: #fafafa; /* same as stats */
   margin-bottom: 40px;
   position: relative;
