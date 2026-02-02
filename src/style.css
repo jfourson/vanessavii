@@ -1127,6 +1127,12 @@ html {
   box-sizing: border-box;
 }
 
+@media (max-width: 767px) {
+  .book-page {
+    grid-template-columns: repeat(2, 1fr);  /* show 2 per row on mobile */
+  }
+}
+
 .book-item img {
   width: 100%;
   height: auto;
